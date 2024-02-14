@@ -38,6 +38,11 @@ We are looking for enthusiastic volunteers who can own pieces of this design puz
 1. Establish a strong business case for an Sthan Prtocol: (a) Understand pain points that existing Logistics Players, Sellers and Buyers face. (b) Identify use cases and applications that could be early adopters of this network. (c) Identify incentive schemes that lower the barrier for providers and customers to join this network.
 2. Give feedback and contribute in designing the technical architecture that gives a positive NPS experience.
 
+## Contributors
+<a href="https://github.com/PeoplePlusAI/Sthan/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=PeoplePlusAI/Sthan" />
+</a>
+
 
 
 
