@@ -35,8 +35,12 @@ Participation: Active use of Sthan addresses by individuals and businesses for s
 ## Next Commitments
 
 We are looking for enthusiastic volunteers who can own pieces of this design puzzle. Please reach out to sreeram@peopleplus.ai if you have expertise and/or interest to:
-1. Establish a strong business case for an Sthan Prtocol: (a) Understand pain points that existing Logistics Players, Sellers and Buyers face. (b) Identify use cases and applications that could be early adopters of this network. (c) Identify incentive schemes that lower the barrier for providers and customers to join this network.
-2. Give feedback and contribute in designing the technical architecture that gives a positive NPS experience.
+1. Establish a strong business case for an Sthan Protocol: (a) Understand pain points that existing Logistics Players, Sellers and Buyers face. (b) Identify use cases and applications that could be early adopters of this network. (c) Identify incentive schemes that lower the barrier for providers and customers to join this network.
+2. Give feedback and contribute to designing the technical architecture that gives a positive NPS experience.
+
+## Discussions
+
+If you have any queries/doubts or new ideas regarding this project please create an issue in this repo. Let's have a discussion!
 
 ## Contributors
 <a href="https://github.com/PeoplePlusAI/Sthan/graphs/contributors">
