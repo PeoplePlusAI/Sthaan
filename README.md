@@ -21,6 +21,9 @@ By leveraging modern technology, Sthan introduces a novel approach to both reach
 
 ## Problem Statement/ Hypothesis
 
+<img width="832" alt="image" src="https://github.com/PeoplePlusAI/Sthan/assets/151424479/3c329671-4984-47c3-bbcf-a49a04c8fc4c">
+
+
 Our hypothesis is two fold:
 
 1. The address problem: Indian addresses are often non-standard, unstructured, and incomplete, which creates significant inefficiencies for logistics, e-commerce, and essential services. Users also lack control over how their sensitive address data is shared and used.
