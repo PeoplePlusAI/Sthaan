@@ -3,7 +3,7 @@
 
 
 
-An early draft of the [Concept Paper](https://docs.google.com/document/d/1J1GJS8XHt3xQmyPngwO3rvbq7JBCEjdA/edit) is available. Please feel free to add comments on the Google Doc itself. This [presentation](https://docs.google.com/presentation/d/1S9vpHJ4-IhFt1T797lXOVB-yKXNZsy1c/edit?usp=sharing&ouid=114966122103238172500&rtpof=true&sd=true) provides an overview of the initiative.
+An early draft of the [Concept Paper]([https://docs.google.com/document/d/1J1GJS8XHt3xQmyPngwO3rvbq7JBCEjdA/edit](https://docs.google.com/document/d/1J1GJS8XHt3xQmyPngwO3rvbq7JBCEjdA/edit?usp=sharing&ouid=114966122103238172500&rtpof=true&sd=true)) is available. Please feel free to add comments on the Google Doc itself. This [presentation](https://docs.google.com/presentation/d/1S9vpHJ4-IhFt1T797lXOVB-yKXNZsy1c/edit?usp=sharing&ouid=114966122103238172500&rtpof=true&sd=true) provides an overview of the initiative.
 
 ## Anchor for this Program 
 
