@@ -14,8 +14,10 @@ Tanuj Bhojwani, Sai Sri Sathya, Rakshitha Ram and Sreeram Sridhar
 
 Learn more about other [people+ai](https://peopleplus.ai/) initiatives.
 
-## Collective Hope/ Dream
-Sthan aims to revolutionize the way we think about and use physical addresses by introducing a digital protocol for creating privacy-protecting, interoperable, and consent-driven addresses. 
+## About Sthan - Collective Hope/ Dream
+Imagine a world where every location is easily accessible, where addresses are structured, standardized, and secure.
+Sthan is not just about improving addressing systems, it's about empowering people with privacy and control over their location data. Our goal is to bridge the gap between the digital and physical worlds, making it easier for individuals and businesses to connect, regardless of where they are by introducing a digital protocol for creating privacy-protecting, interoperable, and consent-driven addresses. 
+
 This initiative seeks to address the challenges faced by billions of people worldwide due to unstructured or inadequate addressing systems, particularly in developing nations.
 By leveraging modern technology, Sthan introduces a novel approach to both reaching and resolving physical locations digitally, offering a more efficient, secure, and user-friendly method for address management.
 
@@ -34,9 +36,10 @@ Participation: Active use of Sthan addresses by individuals and businesses for s
 
 ## Next Commitments
 
-We are looking for enthusiastic volunteers who can own pieces of this design puzzle. Please reach out to sreeram@peopleplus.ai if you have expertise and/or interest to:
-1. Establish a strong business case for an Sthan Protocol: (a) Understand pain points that existing Logistics Players, Sellers and Buyers face. (b) Identify use cases and applications that could be early adopters of this network. (c) Identify incentive schemes that lower the barrier for providers and customers to join this network.
-2. Give feedback and contribute to designing the technical architecture that gives a positive NPS experience.
+We are looking for enthusiastic volunteers who can own pieces of this design puzzle. Please reach out to sreeram@peopleplus.ai if you have expertise and/or interest in:
+1. **Business Case Development**: Help us understand the pain points of logistics players, sellers, and buyers. Identify use cases and early adopters of Sthan.
+2. **Technical Architecture**: Contribute to designing a system that delivers a positive user experience.
+3. **Feedback and Ideas**: Your feedback and new ideas are crucial to refining Sthan. Let's discuss and evolve the project together.
 
 ## Discussions
 
