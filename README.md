@@ -1,8 +1,7 @@
 # Sthan - Digital First Address for 7.8Bn People
 
-```
 "Sthan" is a virtual address protocol that simplifies locating a person or a physical space. 
-```
+
 <img width="988" alt="image" src="https://github.com/PeoplePlusAI/Sthan/assets/151424479/69ffcadf-fbc6-4d2c-939b-c5849c6eb3f2">
 
 ## The problem
