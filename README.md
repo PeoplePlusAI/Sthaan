@@ -52,13 +52,10 @@ We are looking for enthusiastic volunteers who can own pieces of this design puz
 * [Rakshitha Ram](https://www.linkedin.com/in/rakshitha-ram-48351039/)
 * [Sreeram Sridhar](https://www.linkedin.com/in/sreeram-sridhar/)
 
-## Anchor for this Program 
 
-Sreeram Sridhar [sreeram@peopleplus.ai]
+## Questions ?
 
-## Discussions
-
-If you have any queries/doubts or new ideas regarding this project please create an issue in this repo. Let's have a discussion!
+If you have any queries/doubts or new ideas regarding this project please create an issue in this repo. Let's have a discussion! For any other queries, please reach out to [Sreeram Sridhar](mailto:sreeram@peopleplus.ai) 
 
 ## Contributors
 <a href="https://github.com/PeoplePlusAI/Sthan/graphs/contributors">
