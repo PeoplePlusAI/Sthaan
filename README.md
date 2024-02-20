@@ -20,15 +20,13 @@ India's unstructured addressing leads to $10-14 billion in annual losses and 30%
 There is a need for a new standard that virtualizes physical addresses, empowering users with privacy and control. This standardization needs a system of incentives to encourage:
 
 
-
 1. Adoption - Investment in the Sthan infrastructure to enhance reliability and coverage.
 2. Participation - Active use of Sthan addresses by individuals and businesses for smoother deliveries and transactions.
 
 
-
 Imagine a world where every location is easily accessible, where addresses are structured, standardized, and secure. Sthan is not just about improving addressing systems, it's about empowering people with privacy and control over their location data.
  
-* It is a digitally native way of answering “Where are you?” in the most human-centric, and simplified way! 
+* Sthan is a digitally native way of answering “Where are you?” in the most human-centric, and simplified way! 
 * Our goal is to bridge the gap between the digital and physical worlds, making it easier for individuals and businesses to connect, regardless of where they are. 
 * We are doing this by introducing a digital protocol for creating privacy-protecting, interoperable, and consent-driven addresses.
 
