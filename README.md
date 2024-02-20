@@ -59,7 +59,7 @@ If you have any queries/doubts or new ideas regarding this project please create
 
 ## Contributors
 <a href="https://github.com/PeoplePlusAI/Sthan/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=PeoplePlusAI/Sthan" />
+  <img src="https://contrib.rocks/image?repo=PeoplePlusAI/Sthan"/>
 </a>
 
 Learn more about other [people+ai](https://peopleplus.ai/) initiatives.
