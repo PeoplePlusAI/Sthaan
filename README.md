@@ -11,13 +11,12 @@
 India's unstructured addressing leads to $10-14 billion in annual losses and 30% is attributed towards last-mile delivery impacting logistics, e-commerce, and access to essential services. For solving this problem, we are building "Sthan". 
 
 * Indian addresses are often non-standard, unstructured, and incomplete. 
-* WWhich creates significant inefficiencies for logistics, e-commerce, and essential services. 
+* Which creates significant inefficiencies for logistics, e-commerce, and essential services. 
 * Users also lack control over how their sensitive address data is shared and used.
 
 ## The solution  
 
 There is a need for a new standard that virtualizes physical addresses, empowering users with privacy and control. This standardization needs a system of incentives to encourage:
-
 
 1. Adoption - Investment in the Sthan infrastructure to enhance reliability and coverage.
 2. Participation - Active use of Sthan addresses by individuals and businesses for smoother deliveries and transactions.
@@ -30,7 +29,7 @@ Imagine a world where every location is easily accessible, where addresses are s
 * We are doing this by introducing a digital protocol for creating privacy-protecting, interoperable, and consent-driven addresses.
 
 
-## How does Sthan work ?
+## How does Sthan work?
 
 * This [presentation](https://docs.google.com/presentation/d/1S9vpHJ4-IhFt1T797lXOVB-yKXNZsy1c/edit?usp=sharing&ouid=114966122103238172500&rtpof=true&sd=true) provides an overview of the initiative.
 
@@ -53,7 +52,7 @@ We are looking for enthusiastic volunteers who can own pieces of this design puz
 * [Sreeram Sridhar](https://www.linkedin.com/in/sreeram-sridhar/)
 
 
-## Questions ?
+## Questions?
 
 If you have any queries/doubts or new ideas regarding this project please create an issue in this repo. Let's have a discussion! For any other queries, please reach out to [Sreeram Sridhar](mailto:sreeram@peopleplus.ai) 
 
