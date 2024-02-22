@@ -2,7 +2,8 @@
 
 "Sthan" is a virtual address protocol that simplifies locating a person or a physical space. 
 
-<img width="988" alt="image" src="https://github.com/PeoplePlusAI/Sthan/assets/151424479/69ffcadf-fbc6-4d2c-939b-c5849c6eb3f2">
+<img width="761" alt="image" src="https://github.com/PeoplePlusAI/Sthan/assets/151424479/06eaba58-f1cb-43b1-8391-e66ef40a06fb">
+
 
 ## The problem
 
@@ -16,17 +17,15 @@ India's unstructured addressing leads to $10-14 billion in annual losses and 30%
 
 ## The solution  
 
-There is a need for a new standard that virtualizes physical addresses, empowering users with privacy and control. This standardization needs a system of incentives to encourage:
+Imagine a world where every location is easily accessible and addresses are structured, standardized, and secure. Sthan is not just about improving addressing systems, it's about empowering people with privacy and control over their location data and enabling Logistic Players to reduce the cost of last-mile delivery and help businesses to expand to underserved territories. 
 
-1. Adoption - Investment in the Sthan infrastructure to enhance reliability and coverage.
-2. Participation - Active use of Sthan addresses by individuals and businesses for smoother deliveries and transactions.
-
-
-Imagine a world where every location is easily accessible, where addresses are structured, standardized, and secure. Sthan is not just about improving addressing systems, it's about empowering people with privacy and control over their location data.
- 
 * Sthan is a digitally native way of answering “Where are you?” in the most human-centric, and simplified way! 
 * Our goal is to bridge the gap between the digital and physical worlds, making it easier for individuals and businesses to connect, regardless of where they are. 
 * We are doing this by introducing a digital protocol for creating privacy-protecting, interoperable, and consent-driven addresses.
+
+This standardization needs a system of incentives to encourage:
+1. Adoption - Investment in the Sthan infrastructure to enhance reliability and coverage.
+2. Participation - Active use of Sthan addresses by individuals and businesses for smoother deliveries and transactions.
 
 
 ## How does Sthan work?
