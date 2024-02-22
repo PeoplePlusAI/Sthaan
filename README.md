@@ -4,8 +4,8 @@
 
 <img width="761" alt="image" src="https://github.com/PeoplePlusAI/Sthan/assets/151424479/06eaba58-f1cb-43b1-8391-e66ef40a06fb">
 
-
-## The problem
+[Sthan presentation](https://docs.google.com/presentation/d/1S9vpHJ4-IhFt1T797lXOVB-yKXNZsy1c/edit?usp=sharing&ouid=114966122103238172500&rtpof=true&sd=true) & [Concept Paper](https://docs.google.com/document/d/1J1GJS8XHt3xQmyPngwO3rvbq7JBCEjdA/edit?usp=sharing&ouid=114966122103238172500&rtpof=true&sd=true) 
+## The problem 
 
 <img width="722" alt="image" src="https://github.com/PeoplePlusAI/Sthan/assets/151424479/2286235b-9f78-4a57-9acb-fceeaaef0ebc">
 
