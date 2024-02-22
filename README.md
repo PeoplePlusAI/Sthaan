@@ -7,9 +7,10 @@
 
 ## The problem
 
-<img width="832" alt="image" src="https://github.com/PeoplePlusAI/Sthan/assets/151424479/3c329671-4984-47c3-bbcf-a49a04c8fc4c">
+<img width="722" alt="image" src="https://github.com/PeoplePlusAI/Sthan/assets/151424479/2286235b-9f78-4a57-9acb-fceeaaef0ebc">
 
-India's unstructured addressing leads to $10-14 billion in annual losses and 30% is attributed towards last-mile delivery impacting logistics, e-commerce, and access to essential services. For solving this problem, we are building "Sthan". 
+
+To solve this problem, we are building "Sthan". 
 
 * Indian addresses are often non-standard, unstructured, and incomplete. 
 * Which creates significant inefficiencies for logistics, e-commerce, and essential services. 
