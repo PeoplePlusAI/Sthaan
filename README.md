@@ -48,7 +48,7 @@ if you have expertise and/or interest in:
 2. **Technical Architecture**: Contribute to designing a system that delivers a positive user experience.
 3. **Policy Development:** As we aim to make Sthaan a benchmark in its domain, developing a robust policy framework is essential. We need volunteers who can help craft policies that ensure compliance, ethical standards, and user protection. Your knowledge in legal, regulatory, or policy writing will guide Sthaan towards sustainable and responsible growth.
 
-For more details on joining the initiative please refer [here]([url](https://peopleplus.ai/volunteer)) and for any queries reach out to sreeram@peopleplus.ai 
+For more details on joining the initiative please refer [here]([https://peopleplus.ai/volunteer] and for any queries reach out to sreeram@peopleplus.ai 
 
 ## Credits for the Sthaan protocol
 
