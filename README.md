@@ -41,10 +41,14 @@ This standardization needs a system of incentives to encourage:
 
 ## Next Commitments
 
-We are looking for enthusiastic volunteers who can own pieces of this design puzzle. Please reach out to sreeram@peopleplus.ai if you have expertise and/or interest in:
+We are looking for enthusiastic volunteers who can own pieces of this design puzzle. 
+
+if you have expertise and/or interest in:
 1. **Business Case Development**: Help us understand the pain points of logistics players, sellers, and buyers. Identify use cases and early adopters of Sthaan.
 2. **Technical Architecture**: Contribute to designing a system that delivers a positive user experience.
-3. **Feedback and Ideas**: Your feedback and new ideas are crucial to refining Sthaan. Let's discuss and evolve the project together.
+3. **Policy Development:** As we aim to make Sthaan a benchmark in its domain, developing a robust policy framework is essential. We need volunteers who can help craft policies that ensure compliance, ethical standards, and user protection. Your knowledge in legal, regulatory, or policy writing will guide Sthaan towards sustainable and responsible growth.
+
+For more details on joining the initiative please refer [here]([url](https://peopleplus.ai/volunteer)) and for any queries reach out to sreeram@peopleplus.ai 
 
 ## Credits for the Sthaan protocol
 
