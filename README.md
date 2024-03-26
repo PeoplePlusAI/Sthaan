@@ -9,7 +9,12 @@
 
 ## The problem 
 
-<img width="722" alt="image" src="https://github.com/PeoplePlusAI/Sthan/assets/151424479/2286235b-9f78-4a57-9acb-fceeaaef0ebc">
+**India loses $10-14 annually due to Unstructured Addresses and last-mile delivery is affected significantly [[Source](https://www.researchgate.net/publication/323164874_Economic_Impact_of_Discoverability_of_Localities_and_Addresses_in_India)]**
+
+<img width="1033" alt="Blume Indus Valley Report screenshot" src="https://github.com/PeoplePlusAI/Sthaan/assets/151424479/f6a631b3-292b-496d-960d-45e6201a957f">
+Image Source: [Indus Valley Annual Report 2022](https://blume.vc/reports/understanding-india-the-indus-valley-annual-report-2022)
+
+
 
 
 To solve this problem, we are building "Sthaan". 
