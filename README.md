@@ -1,6 +1,6 @@
 ## Sthaan - Digital First Address for 7.8 Billion People
 
-Imagine a world where locating a person or place is as simple as sending an email. Sthaan is a revolutionary virtual address platform that makes this possible. It's a digital, human-centric way of answering two fundamental questions: “Where are you?” and “How can I reach you?” with the help of a handle similar to a UPI Handle but to answer "Where" and "How"? For example: sita@paytm/home answers "Where is Sita's home?" and "How to reach her home?"
+Imagine a world where locating a person or place is as simple as transferring money via UPI. Sthaan is a virtual address platform that makes this possible. It's a digital, human-centric way of answering two fundamental questions: “Where are you?” and “How can I reach you?” with the help of a handle similar to a UPI Handle but to answer "Where" and "How"? For example: sita@paytm/home answers "Where is Sita's home?" and "How to reach her home?"
 
 ## Why Do We Need This?
 
