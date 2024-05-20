@@ -15,22 +15,21 @@ Image Source: [Indus Valley Annual Report 2022](https://blume.vc/reports/underst
 - **High Costs:** The lack of standardized addresses leads to higher costs for businesses, with billions lost annually.
 - **Data Privacy Issues:** Users have limited control over how their sensitive address data is shared and used.
 
-## The Impact of Poor Addressing
-
-<img width="624" alt="image" src="https://github.com/PeoplePlusAI/Sthaan/assets/151424479/e563ba48-e7ff-4c02-bcd1-9935a7487961">
 
 ## Learn More
 
 To read about the different stories affected by the problem and know more about the solution, please read the [Concept Paper Sthaan v0.2 (latest)](https://docs.google.com/document/d/1i6-b5co3HPZ22oTjpQcg_oe-fTb27vdlOZo70BD7Fh8/edit?usp=sharing). If you are interested in seeing how our ideas have evolved, you can also read the [Concept Paper Sthaan v0.1 (older version)](https://docs.google.com/document/d/1J1GJS8XHt3xQmyPngwO3rvbq7JBCEjdA/edit?usp=sharing&ouid=114966122103238172500&rtpof=true&sd=true).
 
+<img width="624" alt="image" src="https://github.com/PeoplePlusAI/Sthaan/assets/151424479/e563ba48-e7ff-4c02-bcd1-9935a7487961">
+
+
 ## Next Commitments
 
-We are looking for enthusiastic volunteers who can own pieces of this design puzzle.
+We are looking for enthusiastic volunteers to help us shape the future of addressing. Here are some key areas where you can contribute:
 
-If you have expertise and/or interest in:
-1. **Business Case Development:** Assist in crafting business cases for implementing Sthaan across various sectors, including E-Commerce, Mobility, and Financial Services. Your input will help showcase Sthaan's versatility and value.
-2. **Technical Architecture:** Help design Sthaan's technical architecture with a focus on Digital Public Infrastructure principles, shaping a system that's reliable, scalable, and user-friendly.
-3. **Policy Development:** Contribute to creating a strong policy framework that upholds compliance, data privacy, and ethical standards, ensuring Sthaan operates responsibly and securely.
+1. **Incentive Design:** Help us create effective incentives for the various parties involved in the protocol. Your role will be to answer, "Why should different parties solve this problem?" and "What's in it for them?"
+2. **UX Research:** Conduct user studies to understand different user personas and explore the problem more deeply. Your insights will help us refine the user experience.
+3. **Policy Development:** Ensure we are on the right track from a policy perspective by identifying potential issues and areas for improvement.
 
 For more details on joining the initiative, please refer [here](https://peopleplus.ai/volunteer) and for any queries, reach out to sreeram@peopleplus.ai.
 
