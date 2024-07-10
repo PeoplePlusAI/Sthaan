@@ -1,26 +1,32 @@
 ## Sthaan - Digital First Address for 7.8 Billion People
 
-Imagine a world where locating a person or place is as simple as transferring money via UPI. Sthaan is a virtual address platform that makes this possible. It's a digital, human-centric way of answering two fundamental questions: “Where are you?” and “How can I reach you?” with the help of a handle similar to a UPI Handle but to answer "Where" and "How"? For example: sita@paytm/home answers "Where is Sita's home?" and "How to reach her home?"
+Aadhaar and UPI are two well-known systems in India that provide virtual addresses for specific purposes:
+
+Aadhaar answers: "Who are you?" (your virtual identity).
+UPI ID answers: "Where do I pay you?" (your virtual payment address).
+
+Sthaan answers: "Where are you?" and "How do I reach you?" 
 
 ## Why Do We Need This?
 
-**India loses $10-14 billion annually due to unstructured addresses, significantly impacting last-mile delivery [[Source](https://www.researchgate.net/publication/323164874_Economic_Impact_of_Discoverability_of_Localities_and_Addresses_in_India)].**
+**India loses $10-14 billion annually due to unstructured addresses or lack of addresses,making it difficult to reach people [[Source](https://www.researchgate.net/publication/323164874_Economic_Impact_of_Discoverability_of_Localities_and_Addresses_in_India)].**
 
 <img width="1033" alt="Blume Indus Valley Report screenshot" src="https://github.com/PeoplePlusAI/Sthaan/assets/151424479/f6a631b3-292b-496d-960d-45e6201a957f">
 Image Source: [Indus Valley Annual Report 2022](https://blume.vc/reports/understanding-india-the-indus-valley-annual-report-2022)
 
-### The Problems Caused by Unstructured Addresses:
+### Who gets affected and how?
 
-- **Inefficiencies in Logistics:** Unstructured and incomplete addresses create significant inefficiencies in logistics, e-commerce, and essential services.
-- **High Costs:** The lack of standardized addresses leads to higher costs for businesses, with billions lost annually.
-- **Data Privacy Issues:** Users have limited control over how their sensitive address data is shared and used.
+<img width="951" alt="image" src="https://github.com/PeoplePlusAI/Sthaan/assets/151424479/77d4d4f7-fcc7-4d82-8f56-08bbdc201df4">
+
+<img width="911" alt="image" src="https://github.com/PeoplePlusAI/Sthaan/assets/151424479/4c73ebea-ff66-46f8-b0c2-ec5ec1c82070">
 
 
-## Learn More
 
-To read about the different stories affected by the problem and know more about the solution, please read the [Concept Paper Sthaan v0.2 (latest)](https://docs.google.com/document/d/1i6-b5co3HPZ22oTjpQcg_oe-fTb27vdlOZo70BD7Fh8/edit?usp=sharing). If you are interested in seeing how our ideas have evolved, you can also read the [Concept Paper Sthaan v0.1 (older version)](https://docs.google.com/document/d/1J1GJS8XHt3xQmyPngwO3rvbq7JBCEjdA/edit?usp=sharing&ouid=114966122103238172500&rtpof=true&sd=true).
+## Sthaan User ID and what's behind it?
+<img width="1223" alt="image" src="https://github.com/PeoplePlusAI/Sthaan/assets/151424479/39a98840-0789-4e31-9a74-9c31cadb892a">
 
-<img width="624" alt="image" src="https://github.com/PeoplePlusAI/Sthaan/assets/151424479/e563ba48-e7ff-4c02-bcd1-9935a7487961">
+
+To read about the different stories affected by the problem and know more about the solution, please read the [Concept Paper](https://docs.google.com/document/d/1JQuabZH6IP4IJfU5PqaQRGK_Vz5PsB7Xu4ThEMqZRPQ/edit?usp=sharing). 
 
 
 ## Next Commitments
