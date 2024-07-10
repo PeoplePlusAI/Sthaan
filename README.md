@@ -1,4 +1,4 @@
-## Sthaan - Digital First Address for 7.8 Billion People
+## Sthaan - An Easier Way to Reach People
 
 Aadhaar and UPI are two well-known systems in India that provide virtual addresses for specific purposes:
 
