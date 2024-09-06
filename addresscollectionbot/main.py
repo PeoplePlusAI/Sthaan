@@ -11,6 +11,25 @@ import json
 import ast
 import time
 
+# code to remove the "Press Enter to apply" from text_input
+import streamlit.components.v1 as components
+components.html(
+"""
+<script>
+const inputs = window.parent.document.querySelectorAll('input');
+inputs.forEach(input => {
+    input.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+        }
+    });
+});
+</script>
+""",
+height=0
+)
+
+
 def isPhoneValid(s):
     if len(s)!=10:
       return False

@@ -15,8 +15,9 @@ curl -fsSL https://ollama.com/install.sh | sh
 ```
 
 3. Run llama3 
+This code will take some time to run as it downloads the entire LLM. Only proceed to next step after it is complete.
 ```bash
-ollama run ollama run llama3
+ollama serve llama3
 ```
 
 4. Run the main file 
