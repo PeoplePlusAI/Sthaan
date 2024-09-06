@@ -9,7 +9,7 @@ This codebase contains implementation for address collection bot
 pip install -r requirements.txt
 ```
 
-2. Install Ollama (for linux users only, others may refer to the [website](ollama.com/downloads/) for downloads.
+2. Install Ollama (for linux users only, others may refer to the [website](ollama.com/downloads/) for downloads.)
 ```bash
 curl -fsSL https://ollama.com/install.sh | sh
 ```
