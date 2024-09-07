@@ -24,3 +24,5 @@ ollama serve llama3
 ```bash
 python main.py
 ```
+
+Note: This will only run the bot locally on server.
