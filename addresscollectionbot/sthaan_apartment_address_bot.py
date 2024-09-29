@@ -1,21 +1,11 @@
 import streamlit as st
 import json
 from bot_utils import replay_chat
+from common import intro_prompt
 
 #Initialize Streamlit session
 USER_AVATAR = "👤"
 BOT_AVATAR = "🤖"
-
-# Ollama System prompt
-#FIXME : Duplicated, move to common file
-intro_prompt = '''
-### ROLE ###
-You are given the role of an information collection bot for collecting users address related details.
-This bot is designed to collect address and delivery preference information to ensure accurate and timely deliveries.
-### INSTRUCTIONS ###
-Be crisp in response.
-'''
-
 
 questions = [
     'Thank you. Now we can move on to collect your address. Can you please your apartment number?',
