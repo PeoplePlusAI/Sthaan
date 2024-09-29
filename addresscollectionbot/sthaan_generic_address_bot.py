@@ -28,15 +28,15 @@ def state_genericadr_type():
     if "genericadr_state" not in st.session_state:
         # If it doesn't exist, initialize it with a default value
         st.session_state["genericadr_state"] = 0
-    else:
-        st.session_state["genericadr_state"] += 1
+    # else:
+    #     st.session_state["genericadr_state"] += 1
 
     if st.session_state["genericadr_state"] >= len(questions):
         st.session_state['address_state_mc'].run_next("Exit")
         return
     
     #Collecting contact number 
-    count = 0
+    count = st.session_state["genericadr_state_attempt"]
     #FIXME Add retry support
 
     #FIXME: Add retry support
@@ -57,6 +57,10 @@ def fetch_genericadr_details(*args):
         question = args[0]
         idx = args[1]
 
+        if "genericadr_state_attempt" not in st.session_state:
+            # If it doesn't exist, initialize it with a default value
+            st.session_state["genericadr_state_attempt"] = 0
+
         session_key = json_keys[idx]
 
         response = st.session_state[session_key]
@@ -74,6 +78,10 @@ def fetch_genericadr_details(*args):
         st.session_state["contact_json"][json_keys[idx]] = 'Not Mentioned'
         if json_data[json_keys[idx]] != 'Not Mentioned':
             st.session_state["contact_json"][json_keys[idx]] = json_data[json_keys[idx]]
+            st.session_state["genericadr_state"] += 1
+            st.session_state["genericadr_state_attempt"] = 0
+        else:
+            st.session_state["genericadr_state_attempt"] += 1
 
         # Continue to gather more information
         if idx < len(questions):

@@ -206,6 +206,9 @@ def fetch_contact():
         return
     if json_data[json_key] != 'Not Mentioned':
         st.session_state["contact_json"][json_key] = json_data[json_key]
+    else:
+        st.session_state['bot_question'].append(f'Sorry I was not able to get the information, I am an AI bot, it will be helpful if you can provide the information in the correct format. {question}')
+        return
 
     st.session_state['address_state_mc'].run_next("LocationType")
 
