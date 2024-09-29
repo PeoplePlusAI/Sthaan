@@ -2,44 +2,15 @@
 import streamlit as st
 import json
 from bot_utils import replay_chat
-from common import intro_prompt
+from common import intro_prompt, instructions
 
 #Initialize Streamlit session
 USER_AVATAR = "👤"
 BOT_AVATAR = "🤖"
 
-questions = [
-    'Thank you. Now we can move on to collect your address. Can you please provide your House number or name of house or some other identity of the house',
-    'Can you please provide the name of the society or road where it is situated?',
-    'Can you tell me about any landmarks nearby, so that our delivery agents can find you more easily? Since you are in a village proper landmarks will be a great help.',
-    'What is the name of the village?',
-    'What is the state?',
-    'What is the pincode?',
-    'Can you provide any delivery prefrences for example "Leave the package at door or with guard" if any',
-    'Can you provide the prefered time slot of your availability to collect the delivery'
-    ]
-
-json_formats = [
-    'Return JSON with key as "house_identity"',
-    'Return JSON with key as "society_or_road"',
-    'Return JSON with key as "landmarks" and value should be array containing all the landmarks',
-    'Return JSON with key as "village"',
-    'Return JSON with key as "state"',
-    'Return JSON with key as "pincode"',
-    'Return JSON with key as "delivery_preferences"',
-    'Return JSON with key as "time_slot"'
-    ]
-
-json_keys = [
-    'house_identity',
-    'society_or_road',
-    'landmarks',
-    'village',
-    'state',
-    'pincode',
-    'delivery_preferences',
-    'time_slot'
-    ]
+questions = instructions['village_address']['questions']
+json_formats = instructions['village_address']['json_formats']
+json_keys = instructions['village_address']['json_keys']
 
 
 def get_prompt(question, response, json_format):

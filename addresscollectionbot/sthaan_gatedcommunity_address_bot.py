@@ -2,48 +2,15 @@
 import streamlit as st
 import json
 from bot_utils import replay_chat
-from common import intro_prompt
+from common import intro_prompt, instructions
 
 #Initialize Streamlit session
 USER_AVATAR = "👤"
 BOT_AVATAR = "🤖"
 
-#FIXME : please move the common parts of address collection to one file
-questions = [
-    'Thank you. Now we can move on to collect your address. Can you please your House number?',
-    'Can you please provide the name of the gated community or the society?',
-    'What is the name of the area or locality where it is situated?',
-    'Can you tell me about any landmarks nearby, so that our delivery agents can find you more easily?',
-    'What is the name of the city or town?',
-    'What is the state?',
-    'What is the pincode?',
-    'Can you provide any delivery prefrences for example "Leave the package at door or with guard" if any',
-    'Can you provide the prefered time slot of your availability to collect the delivery'
-]
-
-json_formats = [
-    'Return JSON with key as "house_number"',
-    'Return JSON with key as "gated_community"',
-    'Return JSON with key as "area"',
-    'Return JSON with key as "landmarks" and value should be array containing all the landmarks',
-    'Return JSON with key as "city"',
-    'Return JSON with key as "state"',
-    'Return JSON with key as "pincode"',
-    'Return JSON with key as "delivery_preferences"',
-    'Return JSON with key as "time_slot"'
-]
-
-json_keys = [
-    'house_number',
-    'gated_community',
-    'area',
-    'landmarks',
-    'city',
-    'state',
-    'pincode',
-    'delivery_preferences',
-    'time_slot'
-]
+questions = instructions['gated_community']['questions']
+json_formats = instructions['gated_community']['json_formats']
+json_keys = instructions['gated_community']['json_keys']
 
 def get_prompt(question, response, json_format):
     return intro_prompt + f'''
