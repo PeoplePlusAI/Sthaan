@@ -1,4 +1,3 @@
-
 import streamlit as st
 import json
 from bot_utils import replay_chat
@@ -89,6 +88,10 @@ def fetch_apartment_details(*args):
         question = args[0]
         idx = args[1]
 
+        if "apartment_state_attempt" not in st.session_state:
+            # If it doesn't exist, initialize it with a default value
+            st.session_state["apartment_state_attempt"] = 0
+
         session_key = json_keys[idx]
 
         response = st.session_state[session_key]
@@ -106,7 +109,10 @@ def fetch_apartment_details(*args):
         st.session_state["contact_json"][json_keys[idx]] = 'Not Mentioned'
         if json_data[json_keys[idx]] != 'Not Mentioned':
             st.session_state["contact_json"][json_keys[idx]] = json_data[json_keys[idx]]
-
+            st.session_state["apartment_state"] += 1
+            st.session_state["apartment_state_attempt"] = 0
+        else:
+            st.session_state["apartment_state_attempt"] += 1
         # Continue to gather more information
         if idx < len(questions):
             state_apartment_type()
