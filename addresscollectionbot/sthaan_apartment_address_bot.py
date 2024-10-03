@@ -35,15 +35,13 @@ def state_apartment_type():
         return
     
     #Collecting contact number 
-    count = 0
-    #FIXME Add retry support
-
-    #FIXME: Add retry support
+    count = st.session_state["attempt"]
+    
     idx = st.session_state["apartment_state"]
 
     question = questions[idx]
 
-    bot_question =  (name + ('Sorry I couldnt get that. ' if count>1 else ', ' ) + question)
+    bot_question =  (name + ('Sorry I couldnt get that. ' if count>=1 else ', ' ) + question)
 
     st.session_state['bot_question'].append(question)
     replay_chat()
@@ -56,9 +54,9 @@ def fetch_apartment_details(*args):
         question = args[0]
         idx = args[1]
 
-        if "apartment_state_attempt" not in st.session_state:
+        if "attempt" not in st.session_state:
             # If it doesn't exist, initialize it with a default value
-            st.session_state["apartment_state_attempt"] = 0
+            st.session_state["attempt"] = 0
 
         session_key = json_keys[idx]
 
@@ -78,9 +76,9 @@ def fetch_apartment_details(*args):
         if json_data[json_keys[idx]] != 'Not Mentioned':
             st.session_state["contact_json"][json_keys[idx]] = json_data[json_keys[idx]]
             st.session_state["apartment_state"] += 1
-            st.session_state["apartment_state_attempt"] = 0
+            st.session_state["attempt"] = 0
         else:
-            st.session_state["apartment_state_attempt"] += 1
+            st.session_state["attempt"] += 1
         # Continue to gather more information
         if idx < len(questions):
             state_apartment_type()

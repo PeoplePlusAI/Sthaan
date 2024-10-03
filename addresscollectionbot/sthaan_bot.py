@@ -1,8 +1,8 @@
 __author__ = "Thiruvambalam Sreenivas, Arush Upadhyaya, Slok Jain..."
 
-import streamlit as st
+import streamlit as st # type: ignore
 import json
-from langchain_community.llms import Ollama
+from langchain_community.llms import Ollama # type: ignore
 import re
 import ast
 from common import intro_prompt
@@ -156,7 +156,10 @@ def fetch_name():
 
     st.session_state['user_response'].append(response)
     
-    question = questions[json_key]
+    if 'attempt' not in st.session_state:
+        st.session_state['attempt'] = 0
+    # question = questions[json_key]
+    question = ('Sorry I couldnt get that. ' if st.session_state["attempt"]>=1 else '' ) + questions[json_key]
     json_format = json_formats[json_key]
 
     prompt = get_prompt(question, response, json_format)
@@ -167,18 +170,28 @@ def fetch_name():
     st.session_state["contact_json"][json_key] = 'Not Mentioned'
     if json_data[json_key] != 'Not Mentioned':
         st.session_state["contact_json"][json_key] = json_data[json_key]
+        st.session_state["attempt"] = 0
+        st.session_state['address_state_mc'].run_next("ContactNumber")
+    else:
+        st.session_state["attempt"] += 1
+        st.session_state['address_state_mc'].run_next("Name")
+    
 
     #Return next state
-    st.session_state['address_state_mc'].run_next("ContactNumber")
+    # st.session_state['address_state_mc'].run_next("ContactNumber")
 
 def state_contact_number():
     json_key = 'contact_number'
     name = st.session_state["contact_json"]["name"]
     
+    if "attempt" not in st.session_state:
+        # If it doesn't exist, initialize it with a default value
+        st.session_state["attempt"] = 0
+
     #Collecting contact number 
-    count = 0
-    #FIXME Add retry support
-    bot_question =  (name + ('Sorry I couldnt get that. ' if count>1 else ', ' ) + questions[json_key])
+    count = st.session_state["attempt"]
+
+    bot_question =  (name + ('Sorry I couldnt get that. ' if count>=1 else ', ' ) + questions[json_key])
 
     st.session_state['bot_question'].append(bot_question)
    
@@ -206,20 +219,22 @@ def fetch_contact():
         return
     if json_data[json_key] != 'Not Mentioned':
         st.session_state["contact_json"][json_key] = json_data[json_key]
+        st.session_state["attempt"] = 0
+        st.session_state['address_state_mc'].run_next("LocationType")
     else:
-        st.session_state['bot_question'].append(f'Sorry I was not able to get the information, I am an AI bot, it will be helpful if you can provide the information in the correct format. {question}')
-        return
+        st.session_state["attempt"] += 1
+        st.session_state['address_state_mc'].run_next("ContactNumber")
 
-    st.session_state['address_state_mc'].run_next("LocationType")
+    # st.session_state['address_state_mc'].run_next("LocationType")
 
 def state_location_type():
     json_key = 'location_type'
     name = st.session_state["contact_json"]["name"]
     
     #Collecting contact number 
-    count = 0
-    #FIXME Add retry support
-    bot_question =  (name + ('Sorry I couldnt get that. ' if count>1 else ', ' ) + questions[json_key])
+    count = st.session_state["location_type_attempt"]
+    
+    bot_question =  (name + ('Sorry I couldnt get that. ' if count>=1 else ', ' ) + questions[json_key])
 
     st.session_state['bot_question'].append(bot_question)
    
