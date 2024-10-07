@@ -1,12 +1,5 @@
-
-![image](https://github.com/user-attachments/assets/6b26f655-2fa9-4c60-8486-39f9c50ad0cb)
-
-Aadhaar and UPI are two well-known systems in India that provide virtual addresses for specific purposes:
-
-Aadhaar answers: "Who are you?" (your virtual identity).
-UPI ID answers: "Where do I pay you?" (your virtual payment address).
-
-Sthaan answers: "Where are you?" and "How do I reach you?" 
+# [peopleplus.ai/sthaan](https://peopleplus.ai/sthaan)
+![image](https://github.com/user-attachments/assets/aa1d5e65-7fb2-42e7-9cef-0c04dd3acd25)
 
 ## Why Do We Need This?
 
@@ -14,14 +7,6 @@ Sthaan answers: "Where are you?" and "How do I reach you?"
 
 <img width="1033" alt="Blume Indus Valley Report screenshot" src="https://github.com/PeoplePlusAI/Sthaan/assets/151424479/f6a631b3-292b-496d-960d-45e6201a957f">
 Image Source: [Indus Valley Annual Report 2022](https://blume.vc/reports/understanding-india-the-indus-valley-annual-report-2022)
-
-### Who gets affected and how?
-
-<img width="951" alt="image" src="https://github.com/PeoplePlusAI/Sthaan/assets/151424479/77d4d4f7-fcc7-4d82-8f56-08bbdc201df4">
-
-<img width="911" alt="image" src="https://github.com/PeoplePlusAI/Sthaan/assets/151424479/4c73ebea-ff66-46f8-b0c2-ec5ec1c82070">
-
-
 
 ## Sthaan User ID and what's behind it?
 <img width="1223" alt="image" src="https://github.com/PeoplePlusAI/Sthaan/assets/151424479/39a98840-0789-4e31-9a74-9c31cadb892a">
