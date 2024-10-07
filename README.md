@@ -1,4 +1,5 @@
 ## Sthaan - An Easier Way to Reach People
+![Sthaan Image](https://github.com/user-attachments/assets/2ddbe647-a2a2-46ce-ac30-5d24cec358ed)
 
 Aadhaar and UPI are two well-known systems in India that provide virtual addresses for specific purposes:
 
@@ -6,6 +7,8 @@ Aadhaar answers: "Who are you?" (your virtual identity).
 UPI ID answers: "Where do I pay you?" (your virtual payment address).
 
 Sthaan answers: "Where are you?" and "How do I reach you?" 
+
+![Demo Video of the AI Track](https://drive.google.com/file/d/1e6b8crWUa-xzfuVd5ct72dxKTMWejdNF/view?usp=sharing)
 
 ## Why Do We Need This?
 
