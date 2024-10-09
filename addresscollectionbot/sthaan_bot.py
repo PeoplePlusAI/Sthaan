@@ -191,7 +191,7 @@ def state_contact_number():
     #Collecting contact number 
     count = st.session_state["attempt"]
 
-    bot_question =  (name + ('Sorry I couldnt get that. ' if count>=1 else ', ' ) + questions[json_key])
+    bot_question =  (name + ', ' + ('Sorry I couldnt get that. ' if count>=1 else '' ) + questions[json_key])
 
     st.session_state['bot_question'].append(bot_question)
    
@@ -231,10 +231,12 @@ def state_location_type():
     json_key = 'location_type'
     name = st.session_state["contact_json"]["name"]
     
+    if 'location_type_attempt' not in st.session_state : 
+            st.session_state['location_type_attempt'] = 0
     #Collecting contact number 
     count = st.session_state["location_type_attempt"]
     
-    bot_question =  (name + ('Sorry I couldnt get that. ' if count>=1 else ', ' ) + questions[json_key])
+    bot_question =  (name + ', ' + ('Sorry I couldnt get that. ' if count>=1 else '' ) + questions[json_key])
 
     st.session_state['bot_question'].append(bot_question)
    

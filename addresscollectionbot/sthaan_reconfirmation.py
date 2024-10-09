@@ -59,6 +59,7 @@ def fetch_reconfirmation(*args):
         bot_question = f'Saving your information. Goodbye'
         st.session_state['bot_question'].append(bot_question)
         replay_chat()
+        os.makedirs("data/", exist_ok=True)
         with open('data/' + st.session_state['contact_json']['contact_number'] + '.json', "w") as file:
             json.dump(st.session_state['contact_json'], file)
         return None

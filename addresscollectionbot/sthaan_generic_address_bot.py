@@ -42,7 +42,7 @@ def state_genericadr_type():
 
     question = questions[idx]
 
-    bot_question =  (name + ('Sorry I couldnt get that. ' if count>=1 else ', ' ) + question)
+    bot_question =  (name + ', ' + ('Sorry I couldnt get that. ' if count>=1 else '' ) + question)
 
     st.session_state['bot_question'].append(question)
     replay_chat()
