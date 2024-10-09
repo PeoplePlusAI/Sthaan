@@ -1,13 +1,58 @@
-
 import streamlit as st
 import json
 from bot_utils import replay_chat
 import ast
 from common import intro_prompt
+import os
+from supabase import create_client, Client
+import streamlit as st
 
 #Initialize Streamlit session
 USER_AVATAR = "👤"
 BOT_AVATAR = "🤖"
+
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+
+def save_to_supabase(data):
+    # transform data according to supabase schema
+    # {
+    #   "address": {
+    #     "area": "Koramangala",
+    #     "city": "Bangalore",
+    #     "type": "other",
+    #     "state": "Karnataka",
+    #     "pincode": "560095",
+    #     "building": "22",
+    #     "landmarks": [
+    #       "Near Forum Mall",
+    #       "Close to Sony World Signal"
+    #     ],
+    #     "full_address": "House No. 22, Crest Towers, 6th Main, 5th Block, Koramangala, Bangalore, Karnataka, 560095"
+    #   },
+    #   "contact": {
+    #     "name": "Kiran Patel",
+    #     "primary_phone": "9401234567"
+    #   },
+    #   "delivery_preferences": {
+    #     "time_slots": [
+    #       "10 AM",
+    #       "1 PM",
+    #       "4 PM",
+    #       "7 PM"
+    #     ],
+    #     "instructions": "If no one is available, leave the package with the receptionist."
+    #   }
+    # }
+    to_push = {
+        "user_name": data["contact"]["name"],
+        "address_json": json.dumps(data["address"]),
+        "user_wa_phone_number": data["contact"]["contact_number"],
+    }
+    response = supabase.table("sthaan").insert(to_push).execute()
+    return response
 
 def state_reconfirmation():
 
