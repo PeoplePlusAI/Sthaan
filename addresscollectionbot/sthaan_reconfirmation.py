@@ -20,7 +20,7 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 def save_to_supabase(data):
     #generate user_pin, 4 digit random number and check if it already exists in the database
     user_pin = str(random.randint(1000, 9999))
-    while supabase.table("sthaan").select("*", f"user_pin=eq.{user_pin}").execute().get("count") > 0:
+    while supabase.table("sthaan").select("*", f"user_pin.eq.{user_pin}").execute().get("data"):
         user_pin = str(random.randint(1000, 9999))
 
     to_push = {
