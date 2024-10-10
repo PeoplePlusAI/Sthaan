@@ -23,6 +23,8 @@ import json
 def save_to_supabase(data):
     # Generate a 4-digit random number and check if it already exists in the database
     user_pin = str(random.randint(1000, 9999))
+    # Generate a random conversation_id 10 digit number
+    conversation_id = str(random.randint(1000000000, 9999999999))
     
     # Query the Supabase table to check if the user_pin already exists
     existing_pin = supabase.table("sthaan").select("user_pin").eq("user_pin", user_pin).execute()
@@ -31,9 +33,16 @@ def save_to_supabase(data):
     while existing_pin.data:  # If data is not empty, the pin exists
         user_pin = str(random.randint(1000, 9999))
         existing_pin = supabase.table("sthaan").select("user_pin").eq("user_pin", user_pin).execute()
+    
+    existing_conversation_id = supabase.table("sthaan").select("conversation_id").eq("conversation_id", conversation_id).execute()
+
+    while existing_conversation_id.data:
+        conversation_id = str(random.randint(1000000000, 9999999999))
+        existing_conversation_id = supabase.table("sthaan").select("conversation_id").eq("conversation_id", conversation_id).execute()
 
     # Prepare the data to push to the Supabase table
     to_push = {
+        "conversation_id": conversation_id,
         "user_name": data["contact_json"]["name"],
         "address_json": json.dumps(data["contact_json"]),
         "user_wa_phone_number": data["contact_json"]["contact_number"],
