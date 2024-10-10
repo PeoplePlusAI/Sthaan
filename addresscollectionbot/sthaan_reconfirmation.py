@@ -34,9 +34,9 @@ def save_to_supabase(data):
 
     # Prepare the data to push to the Supabase table
     to_push = {
-        "user_name": data["contact"]["name"],
-        "address_json": json.dumps(data["address"]),
-        "user_wa_phone_number": data["contact"]["contact_number"],
+        "user_name": data["contact_json"]["name"],
+        "address_json": json.dumps(data["address_json"]),
+        "user_wa_phone_number": data["contact_json"]["contact_number"],
         "user_pin": user_pin,
     }
     

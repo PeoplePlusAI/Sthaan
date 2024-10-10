@@ -86,4 +86,15 @@ def fetch_village_details(*args):
         if idx < len(questions):
             state_village_type()
         else:
+            st.session_state['address_json'] = {
+                "location_type": 'village',
+                "house_identity": st.session_state["contact_json"]["house_identity"],
+                "society_or_road": st.session_state["contact_json"]["society_or_road"],
+                "landmarks": st.session_state["contact_json"]["landmarks"],
+                "village": st.session_state["contact_json"]["village"],
+                "state": st.session_state["contact_json"]["state"],
+                "pincode": st.session_state["contact_json"]["pincode"],
+                "instructions": st.session_state["contact_json"]["delivery_preferences"],
+                "time_slot": st.session_state["contact_json"]["time_slot"]
+            }
             st.session_state['address_state_mc'].run_next("Exit")

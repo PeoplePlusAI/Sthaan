@@ -84,4 +84,15 @@ def fetch_gatedcommunity_details(*args):
         if idx < len(questions):
             state_gatedcommunity_type()
         else:
+            st.session_state['address_json'] = {
+                "location_type": "Gated Community",
+                "gated_community": st.session_state["contact_json"]["gated_community"],
+                "area": st.session_state["contact_json"]["area"],
+                "landmarks": st.session_state["contact_json"]["landmarks"],
+                "city": st.session_state["contact_json"]["city"],
+                "state": st.session_state["contact_json"]["state"],
+                "pincode": st.session_state["contact_json"]["pincode"],
+                "instructions": st.session_state["contact_json"]["delivery_preferences"],
+                "time_slot": st.session_state["contact_json"]["time_slot"]
+            }
             st.session_state['address_state_mc'].run_next("Exit")

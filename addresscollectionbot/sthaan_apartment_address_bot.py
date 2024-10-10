@@ -85,4 +85,16 @@ def fetch_apartment_details(*args):
         if idx < len(questions):
             state_apartment_type()
         else:
+            st.session_state['address_json'] = {
+                "location_type": 'apartment',
+                "building": st.session_state["contact_json"]["building"],
+                "apartment_number": st.session_state["contact_json"]["apartment_number"],
+                "area": st.session_state["contact_json"]["area"],
+                "landmarks": st.session_state["contact_json"]["landmarks"],
+                "city": st.session_state["contact_json"]["city"],
+                "state": st.session_state["contact_json"]["state"],
+                "pincode": st.session_state["contact_json"]["pincode"],
+                "instructions": st.session_state["contact_json"]["delivery_preferences"],
+                "time_slot": st.session_state["contact_json"]["time_slot"]
+            }
             st.session_state['address_state_mc'].run_next("Exit")
