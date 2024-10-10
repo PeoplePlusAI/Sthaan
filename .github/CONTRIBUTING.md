@@ -49,11 +49,7 @@ When creating a pull request, please follow these guidelines:
 
 ## Contact
 
-If you have any questions or need further assistance, please reach out to us at [email@example.com](mailto:email@example.com).
+If you have any questions or need further assistance, please reach out to us.
 
 We appreciate your contributions and look forward to collaborating with you!
 
-```
-
-This file is intentionally left blank.
-```
