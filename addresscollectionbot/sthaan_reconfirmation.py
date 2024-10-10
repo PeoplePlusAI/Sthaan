@@ -44,7 +44,7 @@ def save_to_supabase(data):
     to_push = {
         "conversation_id": conversation_id,
         "user_name": data["contact_json"]["name"],
-        "address_json": json.dumps(data["contact_json"]),
+        "address_json": data["contact_json"],
         "user_wa_phone_number": data["contact_json"]["contact_number"],
         "user_pin": user_pin,
     }
@@ -109,11 +109,7 @@ def fetch_reconfirmation(*args):
         # with open('data/' + st.session_state['contact_json']['contact_number'] + '.json', "w") as file:
         #     json.dump(st.session_state['contact_json'], file)
         res = save_to_supabase(st.session_state)
-        if res.get("error"):
-            st.error("Error saving to database")
-            print(res.get("error"))
-        else:
-            st.success("Data saved successfully")
+        
         return None
 
 def state_addr_update():
