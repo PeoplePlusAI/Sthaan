@@ -11,6 +11,72 @@ To read about the different stories affected by the problem and know more about 
 
 For more details on joining the initiative, please refer [here](https://peopleplus.ai/volunteer) and for any queries, reach out to sreeram@peopleplus.ai.
 
+## Table of Contents
+
+- [Getting Started](#getting-started)
+- [Contributing](#contributing)
+- [Documentation](#documentation)
+- [Issues](#issues)
+- [Pull Requests](#pull-requests)
+- [Volunteer](#volunteer)
+
+## Getting Started
+
+Follow these steps to set up and run *Sthaan* locally:
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/PeoplePlusAI/Sthaan.git
+   ```
+2. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Install Ollama (Linux users only)**:
+   ```bash
+   curl -fsSL https://ollama.com/install.sh | sh
+   ```
+   For other platforms, download from [Ollama's website](https://ollama.com/download/).
+
+4. **Run the project**:
+   - Start the LLM service (this step might take time):
+     ```bash
+     ollama serve llama3
+     ```
+   - Run the main application:
+     ```bash
+     python main.py
+     ```
+
+> 💡 The project may take some time to initialize fully. Please wait until the large language model (LLM) is downloaded and running.
+
+
+## Contributing
+
+We welcome contributions from the community. To contribute to this project, please follow the guidelines outlined in [CONTRIBUTING.md](.github/CONTRIBUTING.md).
+
+## Documentation
+
+All the necessary documentation of Sthaan are avaiilable in the `docs` folder
+
+To access or contribute to the documentation, please refer to [docs/README.md](docs/README.md).
+
+## Issues
+
+Provide instructions for reporting issues:
+
+If you encounter any issues with the project, please create a new issue using the [issue template](.github/ISSUE_TEMPLATE.md). Provide as much detail as possible to help us understand and resolve the issue.
+
+## Pull Requests
+
+Explain your process for accepting pull requests and follow the template provided in [Pull Request Template](.github/PULL_REQUEST_TEMPLATE.md)
+
+
+## Contribute
+
+If you would like to contribute to the codebase, please refer to the [CONTRIBUTING.md](.github/CONTRIBUTING.md) file for more information. We appreciate your contributions!
+
+
 ## Credits for the Sthaan Protocol
 
 * [Tanuj Bhojwani](https://www.linkedin.com/in/tanujbhojwani/)
