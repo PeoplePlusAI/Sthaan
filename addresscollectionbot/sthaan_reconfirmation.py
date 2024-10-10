@@ -82,9 +82,15 @@ def fetch_reconfirmation(*args):
         bot_question = f'Saving your information. Goodbye'
         st.session_state['bot_question'].append(bot_question)
         replay_chat()
-        os.makedirs("data/", exist_ok=True)
-        with open('data/' + st.session_state['contact_json']['contact_number'] + '.json', "w") as file:
-            json.dump(st.session_state['contact_json'], file)
+        # os.makedirs("data/", exist_ok=True)
+        # with open('data/' + st.session_state['contact_json']['contact_number'] + '.json', "w") as file:
+        #     json.dump(st.session_state['contact_json'], file)
+        res = save_to_supabase(st.session_state)
+        if res.get("error"):
+            st.error("Error saving to database")
+            print(res.get("error"))
+        else:
+            st.success("Data saved successfully")
         return None
 
 def state_addr_update():
