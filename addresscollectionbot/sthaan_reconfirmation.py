@@ -17,20 +17,34 @@ SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-def save_to_supabase(data):
-    #generate user_pin, 4 digit random number and check if it already exists in the database
-    user_pin = str(random.randint(1000, 9999))
-    while supabase.table("sthaan").select("*", f"user_pin.eq.{user_pin}").execute().get("data"):
-        user_pin = str(random.randint(1000, 9999))
+import random
+import json
 
+def save_to_supabase(data):
+    # Generate a 4-digit random number and check if it already exists in the database
+    user_pin = str(random.randint(1000, 9999))
+    
+    # Query the Supabase table to check if the user_pin already exists
+    existing_pin = supabase.table("sthaan").select("user_pin").eq("user_pin", user_pin).execute()
+    
+    # Keep generating new pins until a unique one is found
+    while existing_pin.data:  # If data is not empty, the pin exists
+        user_pin = str(random.randint(1000, 9999))
+        existing_pin = supabase.table("sthaan").select("user_pin").eq("user_pin", user_pin).execute()
+
+    # Prepare the data to push to the Supabase table
     to_push = {
         "user_name": data["contact"]["name"],
         "address_json": json.dumps(data["address"]),
         "user_wa_phone_number": data["contact"]["contact_number"],
         "user_pin": user_pin,
     }
+    
+    # Insert the new record into the database
     response = supabase.table("sthaan").insert(to_push).execute()
+    
     return response
+
 
 def state_reconfirmation():
 
