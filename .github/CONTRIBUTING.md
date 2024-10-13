@@ -18,43 +18,42 @@ To ensure a smooth collaboration, please follow these guidelines when contributi
 If you encounter any issues or have suggestions for improvements, please submit an issue using the following template:
 
 ```
-## Issue Title:
-(Concise and descriptive title)
+## Issue Template
 
-### Description:
-A clear and concise description of the issue or feature request.
+**Description:**
+A clear and concise description of the issue.
 
-### Steps to Reproduce:
+**Steps to Reproduce:**
 1. 
 2. 
 3. 
 
-### Expected Behavior:
-What you expected to happen.
+**Expected Behavior:**
+A clear and concise description of what you expected to happen.
 
-### Actual Behavior:
-What actually happened, including any error messages.
+**Actual Behavior:**
+A clear and concise description of what actually happened.
 
-### Screenshots or Logs:
-(If applicable, include screenshots, logs, or other visual aids.)
+**Additional Information:**
+Any additional information or screenshots that may be helpful in resolving the issue.
 
-### Additional Information:
-Any other context about the problem or request.
 ```
 
 ## Creating Pull Requests
 
-When submitting a pull request, make sure to:
+When creating a pull request, please follow these guidelines:
 
-1. Title: Provide a clear and concise title that reflects the nature of your changes.
-2. Description: Include a detailed description of the changes, the problem it addresses, and the rationale behind your solution.
-3. Reference Issues: Reference any related issues using the #issue-number syntax.
-4.  Small Commits: Make sure each commit in the pull request serves a clear purpose and can be understood on its own.
-5. Review: Be responsive to feedback and comments from the maintainers, and be ready to make revisions if necessary.
+1. Provide a clear and descriptive title for your pull request.
+2. Include a detailed description of the changes you have made.
+3. Reference any related issues or pull requests.
 
 ## Contact
 
-If you have any questions or need further assistance, please reach out to us.
+If you have any questions or need further assistance, please reach out to us at [email@example.com](mailto:email@example.com).
 
 We appreciate your contributions and look forward to collaborating with you!
 
+```
+
+This file is intentionally left blank.
+```
