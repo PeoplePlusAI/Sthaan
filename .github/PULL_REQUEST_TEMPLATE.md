@@ -1,33 +1,32 @@
 ## Description
-<!--- Describe your changes in detail -->
+<!--- Provide a concise summary of your changes and the reasoning behind them. -->
 
 ## Motivation and Context
 <!--- Why is this change required? What problem does it solve? -->
+<!--- If it fixes an open issue, please link to the issue here. -->
 
 ## How Has This Been Tested?
-<!--- Please describe how you tested your changes. -->
+<!--- Describe the tests you ran to verify your changes. -->
+<!--- Include details on test configurations, environment setup, and edge cases. -->
 
-## Screenshots (if appropriate):
-<!--- If applicable, add screenshots to help explain your changes. -->
+## Screenshots (if applicable):
+<!--- Attach screenshots or other visual aids to clarify your changes, if needed. -->
 
-## Types of changes
-<!--- What types of changes does your code introduce? Put an `x` in all the boxes that apply: -->
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+## Types of Changes
+<!--- Indicate the type of change this PR introduces by marking the appropriate box: -->
+- [ ] Bug fix (non-breaking change that fixes an issue)
+- [ ] New feature (non-breaking change that adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to change)
 
-## Checklist:
-<!--- Go over all the following points, and put an `x` in all the boxes that apply. -->
-- [ ] My code follows the code style of this project.
-- [ ] I have performed a self-review of my own code.
-- [ ] I have commented my code, particularly in hard-to-understand areas.
-- [ ] I have made corresponding changes to the documentation.
-- [ ] My changes generate no new warnings.
-- [ ] I have added tests that prove my fix is effective or that my feature works.
-- [ ] New and existing unit tests pass locally with my changes.
-- [ ] Any dependent changes have been merged and published in downstream modules/packages.
+## Checklist
+<!--- Verify that all the necessary checks are met by marking the appropriate boxes: -->
+- [ ] My code adheres to the style and standards of this project.
+- [ ] I have self-reviewed my code and addressed any issues.
+- [ ] I have documented my code where necessary, especially in complex areas.
+- [ ] I have updated relevant documentation as part of this change.
+- [ ] My changes introduce no new warnings or errors.
+- [ ] I have added tests that verify my changes are effective or that my new feature works.
+- [ ] All existing and new tests pass locally with my changes.
+- [ ] Any dependent changes have been merged and released in related modules/packages.
 
-<!--- Provide any additional information or context about the pull request here. -->
-```
-
-Note: This is a template for creating pull requests in the project. It provides a structure and guidelines for creating pull requests. Please fill in the necessary information and remove any unnecessary sections before submitting the pull request.
+<!--- Add any additional notes, information, or context to your pull request here. -->
