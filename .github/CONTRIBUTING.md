@@ -18,34 +18,39 @@ To ensure a smooth collaboration, please follow these guidelines when contributi
 If you encounter any issues or have suggestions for improvements, please submit an issue using the following template:
 
 ```
-## Issue Template
+## Issue Title:
+(Concise and descriptive title)
 
-**Description:**
-A clear and concise description of the issue.
+### Description:
+A clear and concise description of the issue or feature request.
 
-**Steps to Reproduce:**
+### Steps to Reproduce:
 1. 
 2. 
 3. 
 
-**Expected Behavior:**
-A clear and concise description of what you expected to happen.
+### Expected Behavior:
+What you expected to happen.
 
-**Actual Behavior:**
-A clear and concise description of what actually happened.
+### Actual Behavior:
+What actually happened, including any error messages.
 
-**Additional Information:**
-Any additional information or screenshots that may be helpful in resolving the issue.
+### Screenshots or Logs:
+(If applicable, include screenshots, logs, or other visual aids.)
 
+### Additional Information:
+Any other context about the problem or request.
 ```
 
 ## Creating Pull Requests
 
-When creating a pull request, please follow these guidelines:
+When submitting a pull request, make sure to:
 
-1. Provide a clear and descriptive title for your pull request.
-2. Include a detailed description of the changes you have made.
-3. Reference any related issues or pull requests.
+1. Title: Provide a clear and concise title that reflects the nature of your changes.
+2. Description: Include a detailed description of the changes, the problem it addresses, and the rationale behind your solution.
+3. Reference Issues: Reference any related issues using the #issue-number syntax.
+4.  Small Commits: Make sure each commit in the pull request serves a clear purpose and can be understood on its own.
+5. Review: Be responsive to feedback and comments from the maintainers, and be ready to make revisions if necessary.
 
 ## Contact
 
