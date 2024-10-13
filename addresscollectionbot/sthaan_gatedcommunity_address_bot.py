@@ -29,7 +29,8 @@ def state_gatedcommunity_type():
         # If it doesn't exist, initialize it with a default value
         st.session_state["gatedcommunity_state"] = 0
     else:
-        st.session_state["gatedcommunity_state"] += 1
+        if st.session_state['attempt']==0:
+            st.session_state["gatedcommunity_state"] += 1
 
     if st.session_state["gatedcommunity_state"] >= len(questions):
         st.session_state['address_state_mc'].run_next("Exit")
@@ -75,7 +76,6 @@ def fetch_gatedcommunity_details(*args):
         st.session_state["contact_json"][json_keys[idx]] = 'Not Mentioned'
         if json_data[json_keys[idx]] != 'Not Mentioned':
             st.session_state["contact_json"][json_keys[idx]] = json_data[json_keys[idx]]
-            st.session_state["gatedcommunity_state"] += 1
             st.session_state["attempt"] = 0
         else:
             st.session_state["attempt"] += 1
@@ -84,4 +84,15 @@ def fetch_gatedcommunity_details(*args):
         if idx < len(questions):
             state_gatedcommunity_type()
         else:
+            st.session_state['address_json'] = {
+                "location_type": "Gated Community",
+                "gated_community": st.session_state["contact_json"]["gated_community"],
+                "area": st.session_state["contact_json"]["area"],
+                "landmarks": st.session_state["contact_json"]["landmarks"],
+                "city": st.session_state["contact_json"]["city"],
+                "state": st.session_state["contact_json"]["state"],
+                "pincode": st.session_state["contact_json"]["pincode"],
+                "instructions": st.session_state["contact_json"]["delivery_preferences"],
+                "time_slot": st.session_state["contact_json"]["time_slot"]
+            }
             st.session_state['address_state_mc'].run_next("Exit")

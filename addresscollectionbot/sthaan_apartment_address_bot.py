@@ -23,12 +23,17 @@ def get_prompt(question, response, json_format):
             '''
 
 def state_apartment_type():
+    if "attempt" not in st.session_state:
+            # If it doesn't exist, initialize it with a default value
+            st.session_state["attempt"] = 0
+
     name = st.session_state["contact_json"]["name"]
     if "apartment_state" not in st.session_state:
         # If it doesn't exist, initialize it with a default value
         st.session_state["apartment_state"] = 0
     else:
-        st.session_state["apartment_state"] += 1
+        if st.session_state['attempt']==0:
+            st.session_state["apartment_state"] += 1
 
     if st.session_state["apartment_state"] >= len(questions):
         st.session_state['address_state_mc'].run_next("Exit")
@@ -43,7 +48,7 @@ def state_apartment_type():
 
     bot_question =  (name + ', ' + ('Sorry I couldnt get that. ' if count>=1 else '' ) + question)
 
-    st.session_state['bot_question'].append(question)
+    st.session_state['bot_question'].append(bot_question)
     replay_chat()
     st.text_input(label=USER_AVATAR, key=json_keys[idx], on_change=fetch_apartment_details, args=(question, idx))
 
@@ -54,9 +59,7 @@ def fetch_apartment_details(*args):
         question = args[0]
         idx = args[1]
 
-        if "attempt" not in st.session_state:
-            # If it doesn't exist, initialize it with a default value
-            st.session_state["attempt"] = 0
+        
 
         session_key = json_keys[idx]
 
@@ -75,12 +78,23 @@ def fetch_apartment_details(*args):
         st.session_state["contact_json"][json_keys[idx]] = 'Not Mentioned'
         if json_data[json_keys[idx]] != 'Not Mentioned':
             st.session_state["contact_json"][json_keys[idx]] = json_data[json_keys[idx]]
-            st.session_state["apartment_state"] += 1
             st.session_state["attempt"] = 0
         else:
             st.session_state["attempt"] += 1
-        # Continue to gather more information
+        
         if idx < len(questions):
             state_apartment_type()
         else:
+            st.session_state['address_json'] = {
+                "location_type": 'apartment',
+                "building": st.session_state["contact_json"]["building"],
+                "apartment_number": st.session_state["contact_json"]["apartment_number"],
+                "area": st.session_state["contact_json"]["area"],
+                "landmarks": st.session_state["contact_json"]["landmarks"],
+                "city": st.session_state["contact_json"]["city"],
+                "state": st.session_state["contact_json"]["state"],
+                "pincode": st.session_state["contact_json"]["pincode"],
+                "instructions": st.session_state["contact_json"]["delivery_preferences"],
+                "time_slot": st.session_state["contact_json"]["time_slot"]
+            }
             st.session_state['address_state_mc'].run_next("Exit")

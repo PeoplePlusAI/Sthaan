@@ -28,8 +28,9 @@ def state_genericadr_type():
     if "genericadr_state" not in st.session_state:
         # If it doesn't exist, initialize it with a default value
         st.session_state["genericadr_state"] = 0
-    # else:
-    #     st.session_state["genericadr_state"] += 1
+    else:
+        if st.session_state['attempt']==0:
+            st.session_state["genericadr_state"] += 1
 
     if st.session_state["genericadr_state"] >= len(questions):
         st.session_state['address_state_mc'].run_next("Exit")
@@ -76,7 +77,6 @@ def fetch_genericadr_details(*args):
         st.session_state["contact_json"][json_keys[idx]] = 'Not Mentioned'
         if json_data[json_keys[idx]] != 'Not Mentioned':
             st.session_state["contact_json"][json_keys[idx]] = json_data[json_keys[idx]]
-            st.session_state["genericadr_state"] += 1
             st.session_state["attempt"] = 0
         else:
             st.session_state["attempt"] += 1
@@ -85,4 +85,16 @@ def fetch_genericadr_details(*args):
         if idx < len(questions):
             state_genericadr_type()
         else:
+            st.session_state['address_json'] = {
+                "location_type": "other",
+                "house_number": st.session_state["contact_json"]["house_number"],
+                "society_or_road": st.session_state["contact_json"]["society_or_road"],
+                "area": st.session_state["contact_json"]["area"],
+                "landmarks": st.session_state["contact_json"]["landmarks"],
+                "city": st.session_state["contact_json"]["city"],
+                "state": st.session_state["contact_json"]["state"],
+                "pincode": st.session_state["contact_json"]["pincode"],
+                "instructions": st.session_state["contact_json"]["delivery_preferences"],
+                "time_slot": st.session_state["contact_json"]["time_slot"]
+            }
             st.session_state['address_state_mc'].run_next("Exit")
