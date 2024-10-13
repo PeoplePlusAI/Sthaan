@@ -29,8 +29,9 @@ def state_village_type():
     if "village_state" not in st.session_state:
         # If it doesn't exist, initialize it with a default value
         st.session_state["village_state"] = 0
-    # else:
-        # st.session_state["village_state"] += 1
+    else:
+        if st.session_state['attempt']==0:
+            st.session_state["village_state"] += 1
 
     if st.session_state["village_state"] >= len(questions):
         st.session_state['address_state_mc'].run_next("Exit")
@@ -75,7 +76,6 @@ def fetch_village_details(*args):
         st.session_state["contact_json"][json_keys[idx]] = 'Not Mentioned'
         if json_data[json_keys[idx]] != 'Not Mentioned':
             st.session_state["contact_json"][json_keys[idx]] = json_data[json_keys[idx]]
-            st.session_state["village_state"] += 1
             st.session_state["attempt"] = 0
         else:
             st.session_state["attempt"] += 1
@@ -86,4 +86,15 @@ def fetch_village_details(*args):
         if idx < len(questions):
             state_village_type()
         else:
+            st.session_state['address_json'] = {
+                "location_type": 'village',
+                "house_identity": st.session_state["contact_json"]["house_identity"],
+                "society_or_road": st.session_state["contact_json"]["society_or_road"],
+                "landmarks": st.session_state["contact_json"]["landmarks"],
+                "village": st.session_state["contact_json"]["village"],
+                "state": st.session_state["contact_json"]["state"],
+                "pincode": st.session_state["contact_json"]["pincode"],
+                "instructions": st.session_state["contact_json"]["delivery_preferences"],
+                "time_slot": st.session_state["contact_json"]["time_slot"]
+            }
             st.session_state['address_state_mc'].run_next("Exit")

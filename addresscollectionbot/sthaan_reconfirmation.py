@@ -1,13 +1,59 @@
-
 import streamlit as st
 import json
 from bot_utils import replay_chat
 import ast
 from common import intro_prompt
+import os
+from supabase import create_client, Client
+import streamlit as st
+import random
 
 #Initialize Streamlit session
 USER_AVATAR = "👤"
 BOT_AVATAR = "🤖"
+
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+
+import random
+import json
+
+def save_to_supabase(data):
+    # Generate a 4-digit random number and check if it already exists in the database
+    user_pin = str(random.randint(1000, 9999))
+    # Generate a random conversation_id 10 digit number
+    conversation_id = str(random.randint(1000000000, 9999999999))
+    
+    # Query the Supabase table to check if the user_pin already exists
+    existing_pin = supabase.table("sthaan").select("user_pin").eq("user_pin", user_pin).execute()
+    
+    # Keep generating new pins until a unique one is found
+    while existing_pin.data:  # If data is not empty, the pin exists
+        user_pin = str(random.randint(1000, 9999))
+        existing_pin = supabase.table("sthaan").select("user_pin").eq("user_pin", user_pin).execute()
+    
+    existing_conversation_id = supabase.table("sthaan").select("conversation_id").eq("conversation_id", conversation_id).execute()
+
+    while existing_conversation_id.data:
+        conversation_id = str(random.randint(1000000000, 9999999999))
+        existing_conversation_id = supabase.table("sthaan").select("conversation_id").eq("conversation_id", conversation_id).execute()
+
+    # Prepare the data to push to the Supabase table
+    to_push = {
+        "conversation_id": conversation_id,
+        "user_name": data["contact_json"]["name"],
+        "address_json": data["contact_json"],
+        "user_wa_phone_number": data["contact_json"]["contact_number"],
+        "user_pin": user_pin,
+    }
+    
+    # Insert the new record into the database
+    response = supabase.table("sthaan").insert(to_push).execute()
+    
+    return response
+
 
 def state_reconfirmation():
 
@@ -59,9 +105,11 @@ def fetch_reconfirmation(*args):
         bot_question = f'Saving your information. Goodbye'
         st.session_state['bot_question'].append(bot_question)
         replay_chat()
-        os.makedirs("data/", exist_ok=True)
-        with open('data/' + st.session_state['contact_json']['contact_number'] + '.json', "w") as file:
-            json.dump(st.session_state['contact_json'], file)
+        # os.makedirs("data/", exist_ok=True)
+        # with open('data/' + st.session_state['contact_json']['contact_number'] + '.json', "w") as file:
+        #     json.dump(st.session_state['contact_json'], file)
+        res = save_to_supabase(st.session_state)
+        
         return None
 
 def state_addr_update():

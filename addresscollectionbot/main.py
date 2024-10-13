@@ -29,6 +29,8 @@ inputs.forEach(input => {
 height=0
 )
 
+with open('indian_states_cities.json', 'r') as f:
+    states_cities_data = json.load(f)
 
 def isPhoneValid(s):
     if len(s)!=10:
@@ -38,6 +40,20 @@ def isPhoneValid(s):
 def validatePinCode(s):
     regexm = r"^[1-9][0-9]{5}$"
     return bool(re.match(regexm, s))
+def validate_city(city):
+    for state, cities in states_cities_data.items():
+        if city in cities:
+            return state 
+    return None 
+def validate_state(state, city):
+    if state not in states_cities_data:
+        return "state_error"  
+    
+    if city not in states_cities_data[state]:
+        return "city_state_mismatch"  
+    
+    return True
+
 
 intro_prompt = '''
 ### ROLE ###
@@ -379,6 +395,25 @@ if st.session_state.location_type is not None and st.session_state.verification_
 
             if json_keys[current_index] == 'pincode':
                 if not validatePinCode(json_data[json_keys[current_index]]):
+                    st.session_state.retry_count += 1
+                    st.rerun()
+
+            if json_keys[current_index] == 'city':
+                valid_state = validate_city(json_data[json_keys[current_index]])
+                if not valid_state:
+                    st.write(f"Error: The city '{json_data[json_keys[current_index]]}' is not in our database. Please check your input.")
+                    st.session_state.retry_count += 1
+                    st.rerun()
+                
+            if json_keys[current_index] == 'state':
+                validation_result = validate_state(json_data[json_keys[current_index]], st.session_state.json_info['city'])
+                
+                if validation_result == "state_error":
+                    st.write(f"Error: The state '{json_data[json_keys[current_index]]}' is not in our database. Please check your input.")
+                    st.session_state.retry_count += 1
+                    st.rerun()
+                elif validation_result == "city_state_mismatch":
+                    st.write(f"Error: The city '{st.session_state.json_info['city']}' does not exist in the state '{json_data[json_keys[current_index]]}'. Please check your input.")
                     st.session_state.retry_count += 1
                     st.rerun()
 
