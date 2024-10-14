@@ -1,8 +1,8 @@
-__author__ = "Thiruvambalam Sreenivas, Arush Upadhyaya, Slok Jain..."
+__author__ = "Thiruvambalam Sreenivas, Arush Upadhyaya, Shlok Jain..."
 
-import streamlit as st # type: ignore
+import streamlit as st
 import json
-from langchain_community.llms import Ollama # type: ignore
+from langchain_community.llms import Ollama
 import re
 import ast
 from common import intro_prompt
@@ -28,7 +28,7 @@ questions = {
 
 #Prompt for expected json format
 json_formats = {
-        "name" : 'Return JSON with key as "name". You must identify which part of the response is the name, YOU MUST NOT RETURN THINGS LIKE {"name":"my name is"} or {"name":"is"} if you cant retrive name then just return "Not Mentioned"',
+        "name" : 'Return JSON with key as "name". You must identify which part of the response is the name, if name is not present in the response, return "Not Mentioned" as the key.',
         "contact_number": 'Return JSON with key as "contact_number" and the datatype of key should be string not int.',
         "location_type" : 'Return JSON with key as "location_type" and the datatype of key should be string not int.This is the question asked to user : {question}. This is the response received from user : {text}. ### STRICT INSTRUCTIONS ### You MUST give only one of the following response as value. I want no other word in your response. The options are : "Apartment", "Gated Community", "Village", "Another type of location", "Not able to infer"'
 }
@@ -48,8 +48,8 @@ def get_prompt(question, response, json_format):
     Instruction: {json_format}
     ### STRICT INSTRUCTIONS ###
     You have to extract the information from the user's response according to the question, it is possible that user has not mentioned the required information in his response.
-    You MUST give only the JSON as plain text. I DON'T WANY ANY OTHER WORD IN YOUR RESPONSE. Don't change the spelling of words used.
-    IF YOU CAN'T RETRIEVE THE INFORMATION OR THE USER HASN'T MENTIONED THE INFORMATION IN THE RESPONSE, GIVE THE KEY AS "Not Mentioned", REMEMBER THIS POINT THIS IS VERY IMPORTANT, WE DON'T WANT WRONG INFORMATION IN OUR DATABASE, MAKE SURE TO RESPOND 'Not Mentioned' IF YOU CANT RETRIEVE THE INFORMATION PROPERLY.
+    You MUST give only the JSON as plain text. I DON'T WANY ANY OTHER WORD IN YOUR RESPONSE.
+    IF THE USER CROSS QUESTIONS, YOU MUST GIVE "Not Mentioned" as the value.
     '''
 
 class StateMachine:
@@ -112,8 +112,6 @@ def init_streamlit_chatbot():
         state_machine.set_start("Start")
         st.session_state['address_state_mc'] = state_machine 
         
-        # Initialize UI
-        replay_chat()
     
     #Core cotact_json
     if "contact_json" not in st.session_state:
@@ -134,17 +132,20 @@ def state_name():
     # Name and Contact number collection block
     json_key = 'name'
     
-
+    if "attempt" not in st.session_state:
+        # If it doesn't exist, initialize it with a default value
+        st.session_state["attempt"] = 0
+    
     #Collecting name 
-    count = 0
-    #FIXME Add retry support
-    bot_question = (('Sorry I couldnt get that. ' if count>1 else '' ) + questions[json_key])
+    count = st.session_state["attempt"]
+    
+    bot_question = (('Sorry I couldnt get that. ' if count>=1 else '' ) + questions[json_key])
 
-    with st.chat_message(name="assistant", avatar=BOT_AVATAR):
-        st.write(bot_question)
+    # with st.chat_message(name="assistant", avatar=BOT_AVATAR):
+    #     st.write(bot_question)
 
     st.session_state['bot_question'].append(bot_question)
-
+    replay_chat()
     st.text_input(label=USER_AVATAR, key="user_input_name", on_change=fetch_name)
 
 def fetch_name():
@@ -156,10 +157,7 @@ def fetch_name():
 
     st.session_state['user_response'].append(response)
     
-    if 'attempt' not in st.session_state:
-        st.session_state['attempt'] = 0
-    # question = questions[json_key]
-    question = ('Sorry I couldnt get that. ' if st.session_state["attempt"]>=1 else '' ) + questions[json_key]
+    question = questions[json_key]
     json_format = json_formats[json_key]
 
     prompt = get_prompt(question, response, json_format)
@@ -168,6 +166,7 @@ def fetch_name():
 
     json_data = json.loads(response)
     st.session_state["contact_json"][json_key] = 'Not Mentioned'
+    print(json_data)
     if json_data[json_key] != 'Not Mentioned':
         st.session_state["contact_json"][json_key] = json_data[json_key]
         st.session_state["attempt"] = 0
@@ -185,7 +184,6 @@ def state_contact_number():
     name = st.session_state["contact_json"]["name"]
     
     if "attempt" not in st.session_state:
-        # If it doesn't exist, initialize it with a default value
         st.session_state["attempt"] = 0
 
     #Collecting contact number 
@@ -216,6 +214,8 @@ def fetch_contact():
     json_data = json.loads(response)
     st.session_state["contact_json"][json_key] = 'Not Mentioned'
     if not isPhoneValid(json_data[json_key]):
+        st.session_state['attempt'] += 1
+        st.session_state['address_state_mc'].run_next("ContactNumber")
         return
     if json_data[json_key] != 'Not Mentioned':
         st.session_state["contact_json"][json_key] = json_data[json_key]
@@ -231,12 +231,12 @@ def state_location_type():
     json_key = 'location_type'
     name = st.session_state["contact_json"]["name"]
     
-    if 'location_type_attempt' not in st.session_state : 
-            st.session_state['location_type_attempt'] = 0
-    #Collecting contact number 
-    count = st.session_state["location_type_attempt"]
+    if "attempt" not in st.session_state:
+        st.session_state["attempt"] = 0
     
-    bot_question =  (name + ', ' + ('Sorry I couldnt get that. ' if count>=1 else '' ) + questions[json_key])
+    count = st.session_state["attempt"]
+    
+    bot_question =  (('Sorry I couldnt get that. ' if count>=1 else '' ) + questions[json_key])
 
     st.session_state['bot_question'].append(bot_question)
    
@@ -273,7 +273,8 @@ def fetch_location_type():
         elif location_type == 'Another type of location':
             st.session_state['address_state_mc'].run_next("GenericAddress")
     else:
-        st.session_state['address_state_mc'].run_next("Exit")
+        st.session_state["attempt"] += 1
+        st.session_state['address_state_mc'].run_next("LocationType")
 
 #Start, No ops
 def state_start():

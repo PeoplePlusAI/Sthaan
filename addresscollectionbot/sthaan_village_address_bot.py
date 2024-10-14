@@ -29,8 +29,9 @@ def state_village_type():
     if "village_state" not in st.session_state:
         # If it doesn't exist, initialize it with a default value
         st.session_state["village_state"] = 0
-    # else:
-        # st.session_state["village_state"] += 1
+    else:
+        if st.session_state['attempt']==0:
+            st.session_state["village_state"] += 1
 
     if st.session_state["village_state"] >= len(questions):
         st.session_state['address_state_mc'].run_next("Exit")
@@ -75,7 +76,6 @@ def fetch_village_details(*args):
         st.session_state["contact_json"][json_keys[idx]] = 'Not Mentioned'
         if json_data[json_keys[idx]] != 'Not Mentioned':
             st.session_state["contact_json"][json_keys[idx]] = json_data[json_keys[idx]]
-            st.session_state["village_state"] += 1
             st.session_state["attempt"] = 0
         else:
             st.session_state["attempt"] += 1
