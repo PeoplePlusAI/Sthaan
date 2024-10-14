@@ -29,7 +29,8 @@ def state_gatedcommunity_type():
         # If it doesn't exist, initialize it with a default value
         st.session_state["gatedcommunity_state"] = 0
     else:
-        st.session_state["gatedcommunity_state"] += 1
+        if st.session_state['attempt']==0:
+            st.session_state["gatedcommunity_state"] += 1
 
     if st.session_state["gatedcommunity_state"] >= len(questions):
         st.session_state['address_state_mc'].run_next("Exit")
@@ -75,7 +76,6 @@ def fetch_gatedcommunity_details(*args):
         st.session_state["contact_json"][json_keys[idx]] = 'Not Mentioned'
         if json_data[json_keys[idx]] != 'Not Mentioned':
             st.session_state["contact_json"][json_keys[idx]] = json_data[json_keys[idx]]
-            st.session_state["gatedcommunity_state"] += 1
             st.session_state["attempt"] = 0
         else:
             st.session_state["attempt"] += 1
