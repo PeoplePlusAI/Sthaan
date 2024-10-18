@@ -4,6 +4,7 @@
 # pip install requests
 # pip install pyaudio
 # pip install regex
+# pip install playsound
 
 #Also specify the below keys - 
 sarvamai_api_key = ""       # declare keys inside the quotes
@@ -18,7 +19,43 @@ import openai
 import json
 import base64
 import regex as re
+import requests, base64, playsound
 
+def tts(input : str):
+  url = "https://api.sarvam.ai/text-to-speech"
+
+  payload = {
+      "inputs": [input],
+      "target_language_code": "hi-IN",
+      "speaker": "meera",
+      "model": "bulbul:v1",
+      "enable_preprocessing": True,
+      "speech_sample_rate": 22050,
+      "loudness": 1,
+      "pitch": 1,
+      "pace": 1
+  }
+  headers = {
+      "api-subscription-key": "1cd8aaef-7409-477d-bd40-d987f7824f9a",
+      "Content-Type": "application/json"
+  }
+  response = requests.request("POST", url, json=payload, headers=headers)
+
+  #print(response.text)
+        
+
+        # Assuming the response contains base64-encoded audio data
+  response_data = response.json()
+  audio_data_base64 = response_data['audios'][0]  # The first audio clip
+  audio_file_name = "response_audio.wav"
+
+        # Decode the base64 audio data and save it as a .wav file
+  with open(audio_file_name, 'wb') as audio_file:
+      audio_file.write(base64.b64decode(audio_data_base64))
+  #print(f"Audio saved to {audio_file_name}.")
+  
+  playsound.playsound("response_audio.wav")
+  
 
 
 def record_stt():
@@ -175,6 +212,7 @@ def contact():
         while True:
           count+=1
           print('Bot: ' + ('Sorry I couldnt get that. ' if count>1 else '' ) + question, end='\n')
+          tts(('Sorry I couldnt get that. ' if count>1 else '' ) + question)
 
         # voice responce
           response = record_stt()
@@ -203,6 +241,7 @@ def contact():
 
     contact_update_question = 'Bot: This is the information you provided, I will repeat them just for verification purposes, if you want to update anything then please let me know. The name you provided is ' + contact_json['name'] + ' and the contact number is ' + contact_json['contact_number'] + '. If you want to change anything then please let me know in which data do you want to make changes.'
     print(contact_update_question, end='\n')
+    tts(contact_update_question)
 
     #voice response
     contact_update_response = record_stt()
@@ -225,6 +264,7 @@ def contact():
             for i in update_list:
                 question = f'I heard you want to update your {i}. Please provide the updated {i}.'
                 print(question, end='\n')
+                tts(question)
 
             # voice response
 
@@ -249,6 +289,7 @@ def contact():
 
 
     print('Bot: Thank you for providing the contact information.', end='\n')
+    tts('Thank you for providing the contact information.')
     print(contact_json, end='\n')
 
 def location():
@@ -263,6 +304,7 @@ def location():
     
     question = '''Bot: Could you please tell me if you live in an apartment, a gated community, a village, or another type of location?'''
     print(question, end='\n')
+    tts(''' Could you please tell me if you live in an apartment, a gated community, a village, or another type of location?''' )
 
     #voice response
     response = record_stt()
@@ -311,6 +353,7 @@ def location():
             while True:
                 count+=1
                 print('Bot: ' + ('Sorry I couldnt get that. ' if count>1 else '' ) + question, end='\n')
+                tts(('Sorry I couldnt get that. ' if count>1 else '' ) + question)
 
             #voice response
                 response = record_stt()
@@ -374,6 +417,8 @@ def location():
             while True:
               count+=1
               print('Bot: ' + ('Sorry I couldnt get that. ' if count>1 else '' ) + question, end='\n')
+              tts(('Sorry I couldnt get that. ' if count>1 else '' ) + question)
+
             #voice response
               response = record_stt()
 
@@ -435,6 +480,7 @@ def location():
             while True:
               count+=1
               print('Bot: ' + ('Sorry I couldnt get that. Please remember that I am an AI bot, it will be helpful for me if you answer the question as short as possible' if count>1 else '' ) + question, end='\n')
+              tts(('Sorry I couldnt get that. Please remember that I am an AI bot, it will be helpful for me if you answer the question as short as possible' if count>1 else '' ) + question)
 
             #voice response
               response = record_stt()
@@ -499,6 +545,7 @@ def location():
         while True:
           count+=1
           print('Bot: ' + ('Sorry I couldnt get that. ' if count>1 else '' ) + question, end='\n')
+          tts(('Sorry I couldnt get that. ' if count>1 else '' ) + question)
 
             #voice response
           response = record_stt()
@@ -532,6 +579,7 @@ def address():
     '''
     address_update_question = 'Bot: This is the information you provided, I will repeat them just for verification purposes, if you want to update anything then please let me know. The data you provided is as follows:' + str(info_json) + '. If you want to change anything then please let me know in which data do you want to make changes.'
     print(address_update_question, end='\n')
+    tts('This is the information you provided, I will repeat them just for verification purposes, if you want to update anything then please let me know. The data you provided is as follows:  If you want to change anything then please let me know in which data do you want to make changes.' )
 
     # voice response
     address_update_response = record_stt()
@@ -554,6 +602,7 @@ def address():
         for i in update_list:
           question = f'I heard you want to update your {i}. Please provide the updated {i}.'
           print(question, end='\n')
+          tts(question)
 
           #voice response
           response = record_stt()
@@ -576,6 +625,8 @@ def address():
       except:
         pass
     print('Bot: Thank you for providing the information.', end='\n')
+    tts('Thank you for providing the information.')
+
     print(info_json, end='\n')
     info_json['contact'] = contact_json
 
