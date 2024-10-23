@@ -7,7 +7,7 @@ Be crisp in response.
 '''
 
 instructions = {
-    'apartment' : {
+    'apartment_address' : {
         "questions" : [
             'Thank you. Now we can move on to collect your address. Can you please your apartment number?',
             'Can you please provide the name of the tower or building?',

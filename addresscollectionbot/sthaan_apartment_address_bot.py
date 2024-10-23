@@ -23,29 +23,32 @@ def get_prompt(question, response, json_format):
             '''
 
 def state_apartment_type():
+    if "attempt" not in st.session_state:
+            # If it doesn't exist, initialize it with a default value
+            st.session_state["attempt"] = 0
+
     name = st.session_state["contact_json"]["name"]
     if "apartment_state" not in st.session_state:
         # If it doesn't exist, initialize it with a default value
         st.session_state["apartment_state"] = 0
     else:
-        st.session_state["apartment_state"] += 1
+        if st.session_state['attempt']==0:
+            st.session_state["apartment_state"] += 1
 
     if st.session_state["apartment_state"] >= len(questions):
         st.session_state['address_state_mc'].run_next("Exit")
         return
     
     #Collecting contact number 
-    count = 0
-    #FIXME Add retry support
-
-    #FIXME: Add retry support
+    count = st.session_state["attempt"]
+    
     idx = st.session_state["apartment_state"]
 
     question = questions[idx]
 
-    bot_question =  (name + ('Sorry I couldnt get that. ' if count>1 else ', ' ) + question)
+    bot_question =  (name + ', ' + ('Sorry I couldnt get that. ' if count>=1 else '' ) + question)
 
-    st.session_state['bot_question'].append(question)
+    st.session_state['bot_question'].append(bot_question)
     replay_chat()
     st.text_input(label=USER_AVATAR, key=json_keys[idx], on_change=fetch_apartment_details, args=(question, idx))
 
@@ -54,11 +57,7 @@ def fetch_apartment_details(*args):
     idx = None
     if any(args): 
         question = args[0]
-        idx = args[1]
-
-        if "apartment_state_attempt" not in st.session_state:
-            # If it doesn't exist, initialize it with a default value
-            st.session_state["apartment_state_attempt"] = 0
+        idx = args[1]  
 
         session_key = json_keys[idx]
 
@@ -77,11 +76,10 @@ def fetch_apartment_details(*args):
         st.session_state["contact_json"][json_keys[idx]] = 'Not Mentioned'
         if json_data[json_keys[idx]] != 'Not Mentioned':
             st.session_state["contact_json"][json_keys[idx]] = json_data[json_keys[idx]]
-            st.session_state["apartment_state"] += 1
-            st.session_state["apartment_state_attempt"] = 0
+            st.session_state["attempt"] = 0
         else:
-            st.session_state["apartment_state_attempt"] += 1
-        # Continue to gather more information
+            st.session_state["attempt"] += 1
+        
         if idx < len(questions):
             state_apartment_type()
         else:
