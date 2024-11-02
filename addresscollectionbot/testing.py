@@ -1,4 +1,6 @@
 import unittest
+from common import leading_questions as questions
+from common import leading_json_formats as json_formats
 from common import intro_prompt, instructions
 from langchain_community.llms import Ollama
 import json
@@ -16,8 +18,8 @@ def get_prompt(question, response, json_format):
 class NameTests(unittest.TestCase):
 
     def test_update(self):
-        bot_question = "Hi, I am Sthaan Bot. Let's start by collecting your contact details. Can you tell me your name?"
-        json_format = 'Return JSON with key as "name". You must identify which part of the response is the name, if name is not present in the response, return "Not Mentioned" as the value.'
+        bot_question = questions['name']
+        json_format = json_formats['name']
 
         tests = [
 
@@ -103,8 +105,8 @@ class NameTests(unittest.TestCase):
 class ContactNumberTests(unittest.TestCase):
 
     def test_update(self):
-        bot_question = "Can you please provide your contact number without country code?"
-        json_format = 'Return JSON with key as "contact_number" and the datatype of key should be string not int.'
+        bot_question = questions['contact_number']
+        json_format = json_formats['contact_number']
 
         tests = [
             {
@@ -170,8 +172,8 @@ class ContactNumberTests(unittest.TestCase):
 class LocationTypeTests(unittest.TestCase):
 
     def test_update(self):
-        bot_question = "Let's start collecting your address and delivery preference information. Could you please tell me if you live in an apartment, a gated community, a village, or another type of location?"
-        json_format = 'Return JSON with key as "location_type" and the datatype of key should be string not int.This is the question asked to user : {question}. This is the response received from user : {text}. ### STRICT INSTRUCTIONS ### You MUST give only one of the following response as value. I want no other word in your response. The options are : "Apartment", "Gated Community", "Village", "Another type of location", "Not able to infer"'
+        bot_question = questions['location_type']
+        json_format = json_formats['location_type']
 
         tests = [
             {
