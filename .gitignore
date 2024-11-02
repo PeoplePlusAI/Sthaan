@@ -1,1 +1,2 @@
 # Update files and directories to ignore
+**/__pycache__
