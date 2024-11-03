@@ -234,6 +234,194 @@ class LocationTypeTests(unittest.TestCase):
                 # Check if the JSON is as expected
                 self.assertEqual(json_data, test["expected_json"], msg=f"Failed test: {test['name']}")
 
+class ApartmentAddressTests(unittest.TestCase):
+    
+    def test_apartment_number(self):
+        bot_question = instructions['apartment_address']['questions'][0]
+        json_format = instructions['apartment_address']['json_formats'][0]
+        json_keys = instructions['apartment_address']['json_keys'][0]
+
+        tests = [
+            {
+                "name": "User provides apartment number",
+                "user_response": "My apartment number is 123",
+                "expected_json": {json_keys: "123"}
+            },
+            {
+                "name": "User provides apartment number with extra information",
+                "user_response": "I live in apartment 123",
+                "expected_json": {json_keys: "123"}
+            },
+            {
+                "name": "User provides apartment number with special characters",
+                "user_response": "My apartment number is 123A",
+                "expected_json": {json_keys: "123A"}
+            },
+            {
+                "name": "User provides apartment number with whitespace",
+                "user_response": "  123  ",
+                "expected_json": {json_keys: "123"}
+            },
+            {
+                "name": "User does not provide apartment number",
+                "user_response": "I don't have an apartment number",
+                "expected_json": {json_keys: "Not Mentioned"}
+            },
+            {
+                "name": "User provides apartment number amidst other information",
+                "user_response": "I live in apartment 123, in New York",
+                "expected_json": {json_keys: "123"}
+            },
+            {
+                "name": "User provides apartment number in a complex response",
+                "user_response": "I live in apartment 123. My old apartment number was 456",
+                "expected_json": {json_keys: "123"}
+            },
+            {
+                "name": "User provides empty response",
+                "user_response": "",
+                "expected_json": {json_keys: "Not Mentioned"}
+            }
+        ]
+
+        llm = Ollama(model="llama3", base_url="https://ollama.pplus.ai")
+
+        for test in tests:
+            with self.subTest(test=test):
+                prompt = get_prompt(bot_question, test["user_response"], json_format)
+                response = llm.invoke(prompt)
+                json_data = json.loads(response)
+                
+                # Check if the JSON is as expected
+                self.assertEqual(json_data, test["expected_json"], msg=f"Failed test: {test['name']}")
+
+    def test_building_name(self):
+        bot_question = instructions['apartment_address']['questions'][1]
+        json_format = instructions['apartment_address']['json_formats'][1]
+        json_keys = instructions['apartment_address']['json_keys'][1]
+
+        tests = [
+            {
+                "name": "User provides building name",
+                "user_response": "I live in the Empire State Building",
+                "expected_json": {json_keys: "Empire State Building"}
+            },
+            {
+                "name": "User does not provide building name",
+                "user_response": "I don't live in a building",
+                "expected_json": {json_keys: "Not Mentioned"}
+            },
+            {
+                "name": "User provides building name amidst other information",
+                "user_response": "I live in the Empire State Building, in New York",
+                "expected_json": {json_keys: "Empire State Building"}
+            },
+            {
+                "name": "User provides building name in a complex response",
+                "user_response": "I live in the Empire State Building. My old building was the Chrysler Building",
+                "expected_json": {json_keys: "Empire State Building"}
+            },
+            {
+                "name": "User provides empty response",
+                "user_response": "",
+                "expected_json": {json_keys: "Not Mentioned"}
+            }
+        ]
+
+        llm = Ollama(model="llama3", base_url="https://ollama.pplus.ai")
+
+        for test in tests:
+            with self.subTest(test=test):
+                prompt = get_prompt(bot_question, test["user_response"], json_format)
+                response = llm.invoke(prompt)
+                json_data = json.loads(response)
+                
+                # Check if the JSON is as expected
+                self.assertEqual(json_data, test["expected_json"], msg=f"Failed test: {test['name']}")
+
+    def test_area_name(self):
+        bot_question = instructions['apartment_address']['questions'][2]
+        json_format = instructions['apartment_address']['json_formats'][2]
+        json_keys = instructions['apartment_address']['json_keys'][2]
+
+        tests = [
+            {
+                "name": "User provides area name",
+                "user_response": "I live in Gurgaon",
+                "expected_json": {json_keys: "Gurgaon"}
+            },
+            {
+                "name": "User does not provide area name",
+                "user_response": "I don't live in an area",
+                "expected_json": {json_keys: "Not Mentioned"}
+            },
+            {
+                "name": "User provides area name amidst other information",
+                "user_response": "I live in Gurgaon, in Haryana",
+                "expected_json": {json_keys: "Gurgaon"}
+            },
+            {
+                "name": "User provides area name in a complex response",
+                "user_response": "I live in Gurgaon. My old area was Delhi",
+                "expected_json": {json_keys: "Gurgaon"}
+            },
+            {
+                "name": "User provides empty response",
+                "user_response": "",
+                "expected_json": {json_keys: "Not Mentioned"}
+            }
+        ]
+
+        llm = Ollama(model="llama3", base_url="https://ollama.pplus.ai")
+
+        for test in tests:
+            with self.subTest(test=test):
+                prompt = get_prompt(bot_question, test["user_response"], json_format)
+                response = llm.invoke(prompt)
+                json_data = json.loads(response)
+                
+                # Check if the JSON is as expected
+                self.assertEqual(json_data, test["expected_json"], msg=f"Failed test: {test['name']}")
+
+    def test_landmarks(self):
+        bot_question = instructions['apartment_address']['questions'][3]
+        json_format = instructions['apartment_address']['json_formats'][3]
+        json_keys = instructions['apartment_address']['json_keys'][3]
+
+        tests = [
+            {
+                "name": "User provides landmarks",
+                "user_response": "There's a park nearby, and a school",
+                "expected_json": {json_keys: ["park", "school"]}
+            },
+            {
+                "name": "User does not provide landmarks",
+                "user_response": "There are no landmarks nearby",
+                "expected_json": {json_keys: ["Not Mentioned"]}
+            },
+            {
+                "name": "User provides landmarks amidst other information",
+                "user_response": "There's a park nearby, and a school. I live in Gurgaon",
+                "expected_json": {json_keys: ["park", "school"]}
+            },
+            {
+                "name": "User provides empty response",
+                "user_response": "",
+                "expected_json": {json_keys: ["Not Mentioned"]}
+            }
+        ]
+
+        llm = Ollama(model="llama3", base_url="https://ollama.pplus.ai")
+
+        for test in tests:
+            with self.subTest(test=test):
+                prompt = get_prompt(bot_question, test["user_response"], json_format)
+                response = llm.invoke(prompt)
+                json_data = json.loads(response)
+                
+                # Check if the JSON is as expected
+                self.assertEqual(json_data, test["expected_json"], msg=f"Failed test: {test['name']}")
+
 
 if __name__ == '__main__':
     suite = unittest.TestSuite()
@@ -242,6 +430,7 @@ if __name__ == '__main__':
     suite.addTests(unittest.defaultTestLoader.loadTestsFromTestCase(NameTests))
     suite.addTests(unittest.defaultTestLoader.loadTestsFromTestCase(ContactNumberTests))
     suite.addTests(unittest.defaultTestLoader.loadTestsFromTestCase(LocationTypeTests))
+    suite.addTests(unittest.defaultTestLoader.loadTestsFromTestCase(ApartmentAddressTests))
     # suite.addTests(unittest.defaultTestLoader.loadTestsFromTestCase(<next test class>))
     # ...
 
