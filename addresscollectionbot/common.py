@@ -3,7 +3,8 @@ intro_prompt = '''
 You are given the role of an information collection bot for collecting users address related details.
 This bot is designed to collect address and delivery preference information to ensure accurate and timely deliveries.
 ### INSTRUCTIONS ###
-Be crisp in response.
+Be crisp in response. ALl JSON keys and values should be in string format.
+If you can't retrieve the information or the user hasn't mentioned the information in the response, give the key as "Not Mentioned".
 '''
 
 leading_questions = {
@@ -21,7 +22,7 @@ leading_json_formats = {
 instructions = {
     'apartment_address' : {
         "questions" : [
-            'Thank you. Now we can move on to collect your address. Can you please your apartment number?',
+            'Thank you. Now we can move on to collect your address. Can you provide please your apartment number?',
             'Can you please provide the name of the tower or building?',
             'What is the name of the area or locality where it is situated?',
             'Can you tell me about any landmarks nearby, so that our delivery agents can find you more easily?',
@@ -33,15 +34,15 @@ instructions = {
         ],
 
         "json_formats" : [
-            'Return JSON with key as "apartment_number"',
-            'Return JSON with key as "building"',
-            'Return JSON with key as "area"',
-            'Return JSON with key as "landmarks" and value should be array containing all the landmarks',
-            'Return JSON with key as "city"',
-            'Return JSON with key as "state"',
-            'Return JSON with key as "pincode"',
-            'Return JSON with key as "delivery_preferences"',
-            'Return JSON with key as "time_slot"'
+            'Return JSON with key as "apartment_number", it should only contain the apartment number and no extra information',
+            'Return JSON with key as "building", it should only contain the name of the tower or building and no extra information',
+            'Return JSON with key as "area", it should only contain the name of the area or locality and no extra information',
+            'Return JSON with key as "landmarks" and value should be array containing all the landmarks, if no landmarks are mentioned return "Not Mentioned"',
+            'Return JSON with key as "city", it should only contain the name of the city or town and no extra information',
+            'Return JSON with key as "state", it should only contain the name of the state and no extra information',
+            'Return JSON with key as "pincode", it should only contain the pincode and no extra information in string format',
+            'Return JSON with key as "delivery_preferences", it should only contain the delivery preferences and no extra information',
+            'Return JSON with key as "time_slot", it should only contain the time slot and no extra information in string format'
         ],
 
         "json_keys" : [
