@@ -1,3 +1,9 @@
+import sys
+import os
+
+# Add src directory to the Python path so it can find the my_module
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import unittest
 from common import leading_questions as questions
 from common import leading_json_formats as json_formats
